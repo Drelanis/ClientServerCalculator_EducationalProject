@@ -1,0 +1,40 @@
+@import '../variables/mainVariables.scss';
+
+.calculator__error {
+  position: absolute;
+  display: flex;
+  top: 190px;
+  margin-left: 41.5px;
+  height: 90px;
+  width: 350px;
+  background-color: rgb(255, 165, 0, 0.55);
+  border-radius: 40px;
+  animation: elementMovesApart 0.5s ease-out forwards;
+
+  &_icon {
+    margin: auto 12px;
+    .fa-triangle-exclamation {
+      font-size: 40px;
+      color: rgb(255, 0, 0, 0.8);
+    }
+  }
+  &_text {
+    margin: auto 0;
+    font-size: $main-font-size;
+  }
+}
+
+@keyframes elementMovesApart {
+  0% {
+    transform: scaleX(0);
+    transform-origin: center;
+  }
+  50% {
+    transform: scaleX(1);
+    transform-origin: center;
+  }
+  100% {
+    transform: scaleX(1);
+    transform-origin: center;
+  }
+}

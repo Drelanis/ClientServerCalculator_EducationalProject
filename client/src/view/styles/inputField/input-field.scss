@@ -1,0 +1,16 @@
+@import '../variables/variablesForLightTheme.scss';
+@import '../variables/mainVariables.scss';
+
+.calculator-input-field {
+  resize: none;
+  overflow-y: auto;
+  border: none;
+  outline: none;
+  text-align: right;
+  background-color: transparent;
+  margin: 18px 0 0 30px;
+  width: 355px;
+  height: 141px;
+  padding: 2px;
+  color: $lightTheme-input-text-color;
+}

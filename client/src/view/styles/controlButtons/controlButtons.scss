@@ -1,0 +1,54 @@
+@import '../variables/variablesForLightTheme.scss';
+@import '../variables/mainVariables.scss';
+
+.calculator__control-buttons {
+  position: relative;
+  height: 523px;
+  width: 423px;
+  background: $lightTheme-control-buttons-background;
+  border-radius: 40px;
+
+  &_top-operators {
+    display: flex;
+    position: absolute;
+    top: 26px;
+    left: 34px;
+    width: 260px;
+    height: 70px;
+    border-radius: $border-radius;
+  }
+
+  &_top-operators > :not(:first-child) {
+    margin-left: 25px;
+  }
+
+  &_operators {
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: 319px;
+    top: 26px;
+    width: 70px;
+    height: 430px;
+    border-radius: $border-radius;
+  }
+
+  &_operators > :not(:first-child) {
+    margin-top: 20px;
+  }
+
+  &_numbers-point {
+    display: flex;
+    position: absolute;
+    flex-wrap: wrap;
+    left: 34px;
+    top: 116px;
+    width: 260px;
+    height: 340px;
+    border-radius: $border-radius;
+  }
+  &_numbers-point > :not(:nth-child(1), :nth-child(4), :nth-child(7), :nth-child(10)) {
+    margin-left: 25px;
+    margin-bottom: 20px;
+  }
+}

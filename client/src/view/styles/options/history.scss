@@ -1,0 +1,23 @@
+@import '../variables/variablesForLightTheme.scss';
+@import '../variables/mainVariables.scss';
+
+.calculator__options {
+  display: flex;
+  &_history {
+    display: flex;
+    width: 35px;
+    height: 35px;
+    margin: 59px 0 0 86px;
+
+    .fa-clock-rotate-left {
+      font-size: $main-font-size-for-icons;
+      margin: auto;
+    }
+    .fa-clock-rotate-left:active {
+      font-size: 25px;
+    }
+    .fa-clock-rotate-left:hover {
+      cursor: $main-cursor-type-for-buttons;
+    }
+  }
+}

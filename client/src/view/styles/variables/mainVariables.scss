@@ -1,0 +1,12 @@
+$main-font-size: 26px;
+$main-font-size-for-icons: 30px;
+$border-radius: 40px;
+$main-cursor-type-for-buttons: pointer;
+
+.ordinary-button {
+  border: none;
+  padding: 0;
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+}

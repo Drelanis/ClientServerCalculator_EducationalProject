@@ -1,0 +1,41 @@
+@import '../variables/variablesForDarkTheme.scss';
+
+.calculator-dark {
+  background: $darkTheme-main-background;
+  .engineer-options-dark {
+    color: $darkTheme-main-text-color;
+  }
+  .history-dark {
+    color: $darkTheme-main-text-color;
+  }
+  .input-field-dark {
+    color: $darkTheme-input-text-color;
+  }
+  .result-output-dark {
+    color: $darkTheme-main-text-color;
+  }
+  .control-buttons-dark {
+    background: $darkTheme-control-buttons-background;
+  }
+  .main-button-dark {
+    color: $darkTheme-main-text-color;
+  }
+  .operations-background-dark {
+    background: $darkTheme-main-buttons-background;
+  }
+  .operation-dark:active {
+    background: $darkTheme-main-buttons-background;
+  }
+  .equals-button-dark {
+    background: $darkTheme-equal-button-background;
+  }
+  .equal-button-dark:active {
+    background: $darkTheme-main-buttons-hover-background;
+  }
+  .numbers-dark {
+    background: $darkTheme-main-buttons-background;
+  }
+  .numbers:active {
+    background: $darkTheme-main-buttons-hover-background;
+  }
+}

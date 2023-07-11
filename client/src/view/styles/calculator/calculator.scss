@@ -1,0 +1,14 @@
+@import '../variables/variablesForLightTheme.scss';
+@import '../variables/mainVariables.scss';
+
+.calculator {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  height: 858px;
+  width: 423px;
+  background: $lightTheme-main-background;
+  font-size: $main-font-size;
+  color: $lightTheme-main-text-color;
+  border-radius: 40px;
+}

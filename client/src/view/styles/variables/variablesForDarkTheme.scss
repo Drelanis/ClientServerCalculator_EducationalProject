@@ -1,0 +1,21 @@
+$darkTheme-main-text-color: rgb(255, 255, 255);
+$darkTheme-input-text-color: rgba(251, 251, 251, 0.5);
+
+$darkTheme-main-background: linear-gradient(
+  180deg,
+  rgb(55, 55, 55) 0%,
+  rgb(37, 38, 40) 22.9%,
+  rgb(0, 3, 9) 100%
+);
+$darkTheme-control-buttons-background: linear-gradient(
+  0deg,
+  rgba(15, 43, 67) 0%,
+  rgba(18, 55, 83) 22.9%,
+  rgba(24, 78, 108, 0.6) 100%
+);
+$darkTheme-main-toggle-background: rgba(5, 5, 5, 0.5);
+$darkTheme-main-slider-background: rgb(27, 106, 156);
+
+$darkTheme-main-buttons-background: rgba(5, 5, 5, 0.3);
+$darkTheme-equal-button-background: rgba(5, 5, 5, 3);
+$darkTheme-main-buttons-hover-background: rgba(5, 5, 5, 0);

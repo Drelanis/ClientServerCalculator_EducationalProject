@@ -1,0 +1,33 @@
+@import '../variables/variablesForLightTheme.scss';
+@import '../variables/mainVariables.scss';
+
+.calculator__result-output {
+  display: flex;
+  top: 270px;
+  font-weight: 700;
+
+  &_equal {
+    display: block;
+    text-align: center;
+    width: 70px;
+    line-height: 70px;
+    height: 70px;
+    margin-left: 34px;
+  }
+
+  &_result {
+    text-align: right;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 165px;
+    height: 70px;
+    line-height: 70px;
+    font-size: 40px;
+    line-height: 60px;
+    margin-left: 120px;
+  }
+  &_result:hover {
+    cursor: $main-cursor-type-for-buttons;
+  }
+}

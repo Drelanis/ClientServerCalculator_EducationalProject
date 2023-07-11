@@ -1,0 +1,19 @@
+.calculator__control-buttons {
+  overflow-y: auto;
+
+  .calculator__control-buttons_extra-actions {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 26px 0;
+  }
+
+  .calculator__control-buttons_extra-actions button {
+    margin: 0 0 25px 38px;
+    width: 90px;
+    height: 90px;
+  }
+}
+
+.calculator__control-buttons::-webkit-scrollbar {
+  width: 0px;
+}

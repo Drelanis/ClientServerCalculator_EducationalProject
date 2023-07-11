@@ -1,0 +1,25 @@
+@import '../variables/mainVariables.scss';
+@import '../variables/variablesForLightTheme.scss';
+
+.calculator__history {
+  position: absolute;
+  top: 335px;
+  width: 423px;
+  height: 523px;
+  background: $lightTheme-control-buttons-background;
+  border-radius: $border-radius;
+  animation: elementExpandUp 0.5s forwards;
+}
+
+@keyframes elementExpandUp {
+  0% {
+    width: 0;
+    transform-origin: left;
+    transform: scaleX(0);
+  }
+  100% {
+    width: 100%;
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+}

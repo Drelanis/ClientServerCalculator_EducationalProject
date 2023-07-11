@@ -1,0 +1,22 @@
+@import './options/toggleTheme.scss';
+@import './options/history.scss';
+@import './inputField/input-field.scss';
+@import './outputField/outputField.scss';
+@import './controlButtons/controlButtons.scss';
+@import './calculator/calculator.scss';
+@import './controlButtons/buttonsStyles.scss';
+@import './themes/darkTheme.scss';
+@import './error/error.scss';
+@import './history/history.scss';
+@import './options/engineer.scss';
+@import './controlButtons/extraControllButtons.scss';
+
+.main-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  font-family: 'Poppins', Verdana, sans-serif;
+  box-sizing: border-box;
+  background-color: bisque;
+}

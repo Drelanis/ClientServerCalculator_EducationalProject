@@ -7,7 +7,7 @@ import ControlButtons from '../../elements/controlButtons/ControlButtons';
 import ExtraControlButtons from '../../elements/extraControlButtons/ExtraControlButtons';
 
 class ToggleExtraControlButtons {
-  static toggleControlButtons(model: IModel) {
+  static toggleControlButtons(model: IModel): void {
     const numbers = document.querySelector(`.${calculatorControlButtons.mainButtons}`);
     const topOptions = document.querySelector(`.${calculatorControlButtons.topMainButtons}`);
     const rightOptions = document.querySelector(`.${calculatorControlButtons.rightMainButtons}`);

@@ -1,7 +1,3 @@
-type configType = {
-  [key: string]: string;
-};
-
 enum tags {
   div = 'div',
   span = 'span',
@@ -35,4 +31,4 @@ enum eventsType {
   keyPress = 'keypress',
 }
 
-export { configType, tags, atributesNames, atributesValues, eventsType };
+export { tags, atributesNames, atributesValues, eventsType };

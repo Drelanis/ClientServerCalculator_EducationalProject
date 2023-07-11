@@ -13,7 +13,7 @@ class ExtraControlButtons extends AbstractBaseElement {
     super();
     this.render();
   }
-  render() {
+  render(): void {
     const root = document.querySelector(`.${calculatorControlButtons.root}`);
     root.append(this.createExtraActions());
   }

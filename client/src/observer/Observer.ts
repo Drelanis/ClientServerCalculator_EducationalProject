@@ -8,14 +8,14 @@ class Observer implements IObserver {
     this.observers = {};
   }
 
-  public addSubscribe(observer: string, subscriber: Function) {
+  public addSubscribe(observer: string, subscriber: Function): void {
     if (!this.observers[observer]) {
       this.observers[observer] = [];
     }
     this.observers[observer].push(subscriber);
   }
 
-  public notifyObserver(context: IModel, observer: string) {
+  public notifyObserver(context: IModel, observer: string): void {
     Object.values(this.observers[observer]).forEach((subscriber: Function) => subscriber(context));
   }
 }

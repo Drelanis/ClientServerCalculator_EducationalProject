@@ -7,7 +7,7 @@ import iconsClassNames from '../../public/icons';
 export type errorObject = { isValid: boolean; message: string };
 
 class ErrorField {
-  static renderErrorField(context: IModel) {
+  static renderErrorField(context: IModel): void {
     const previusElement = document.querySelector(`.${errorClassNames.root}`);
 
     const errorMessageElement = document.createElement(tags.div);

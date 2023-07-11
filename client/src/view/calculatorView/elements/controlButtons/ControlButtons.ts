@@ -14,7 +14,7 @@ class ControlButtons extends AbstractBaseElement {
     this.render();
   }
 
-  public render() {
+  public render(): void {
     const root = document.querySelector(`.${calculatorControlButtons.root}`);
     root.append(
       this.createTopMainButtons(),

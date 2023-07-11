@@ -6,7 +6,7 @@ class Controller implements IController {
     this.model.addSubscribe('newMathExpression', this.calculate);
   }
 
-  public async calculate(context: IModel) {
+  public async calculate(context: IModel): Promise<void> {
     try {
       const response = await fetch('http://localhost:4000/calculate', {
         method: 'POST',

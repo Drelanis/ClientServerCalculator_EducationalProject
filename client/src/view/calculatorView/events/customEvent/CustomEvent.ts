@@ -13,7 +13,7 @@ class CustomEvents {
     document.querySelector<HTMLElement>(`.${outputClassNames.resultField}`).textContent = '';
   }
 
-  calculateExression() {
+  calculateExression(): void {
     const equal: HTMLElement = document.querySelector(`.${customEventsClassNames.equal}`);
     const input: HTMLInputElement = document.querySelector(`.${inputClassNames.inputField}`);
     equal.addEventListener(eventsType.click, () => this.model.setExpression(input.value));

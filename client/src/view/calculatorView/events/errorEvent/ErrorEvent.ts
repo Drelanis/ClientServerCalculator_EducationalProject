@@ -2,7 +2,7 @@ import { errorClassNames, outputClassNames } from '../../classNames/classNamesOf
 import { eventsType } from '../../config/config';
 
 class ErrorEvents {
-  static errorClearMessage() {
+  static errorClearMessage(): void {
     const outputField = document.querySelector(`.${outputClassNames.resultField}`);
     const errorElement = document.querySelector(`.${errorClassNames.container}`);
     if (!errorElement) {

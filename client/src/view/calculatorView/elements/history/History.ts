@@ -8,7 +8,7 @@ class History extends AbstractBaseElement {
     this.render();
   }
 
-  render() {
+  render(): void {
     const root = document.querySelector(`.${calculator.root}`);
     root.append(this.createHistoryField());
   }

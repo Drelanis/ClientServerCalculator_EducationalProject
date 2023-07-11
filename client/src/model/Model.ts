@@ -21,7 +21,7 @@ export class Model extends Observer implements IModel {
     this.notifyObserver(this, 'newMathResult');
   }
 
-  setError(error: string) {
+  setError(error: string): void {
     this.error.message = error;
     this.notifyObserver(this, 'renderError');
   }

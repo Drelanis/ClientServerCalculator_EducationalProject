@@ -5,13 +5,13 @@ import { constantRegexp } from '../../config/regexp/regexp.js';
 const numberStack: any = new Stack();
 const operatorStack: any = new Stack();
 
-const minusCount = (negativeNumber: string) => {
+const minusCount = (negativeNumber: string): number => {
   const minuses = negativeNumber.match(/-/g);
   const minuseCount = minuses.length;
   return minuseCount;
 };
 
-const considerMinuses = (negativeNumber: string) => {
+const considerMinuses = (negativeNumber: string): string => {
   const number = negativeNumber.match(constantRegexp.isNumber)[0];
   if (minusCount(negativeNumber) % 2 === 0) {
     return `${number}`;
@@ -31,11 +31,14 @@ const createField = (expression: string): string[] => {
   return field;
 };
 
-const performOperation = (numberStack: string[], operatorStack: string[]) => {
-  const operator = operatorStack.pop();
-  const secondOperand = numberStack.pop();
-  const firstOperand = numberStack.pop();
-  const resultOfOperation = binaryFunctions[operator].operation(
+const performOperation = (
+  numberStack: string[],
+  operatorStack: string[]
+): number => {
+  const operator: string = operatorStack.pop();
+  const secondOperand: string = numberStack.pop();
+  const firstOperand: string = numberStack.pop();
+  const resultOfOperation: number = binaryFunctions[operator].operation(
     firstOperand,
     secondOperand
   );
@@ -63,9 +66,8 @@ const calculateBinaryOperations = (expression: string) => {
     }
   }
   while (!operatorStack.isEmpty()) {
-    numberStack.push(Number(performOperation(numberStack, operatorStack)));
+    numberStack.push(performOperation(numberStack, operatorStack));
   }
-
   return numberStack.pop();
 };
 

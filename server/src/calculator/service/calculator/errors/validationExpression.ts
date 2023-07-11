@@ -2,7 +2,7 @@ import validationMainOperators from './checks/validationMainOperators.js';
 import validationNumbers from './checks/validationNumbers.js';
 import validationUnaryExpressions from './checks/validationUnaryExpressions.js';
 
-const validationExpression = (expression: string) => {
+const validationExpression = (expression: string): boolean => {
   if (validationUnaryExpressions(expression)) {
     throw new Error('Value of unary expressions must be enclosed in ()');
   }

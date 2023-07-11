@@ -18,7 +18,7 @@ const constantRegexp = {
   isLetter: /[a-zA-Z]/,
 };
 
-const isConstanse = (constants: IOperations) => {
+const isConstanse = (constants: IOperations): RegExp => {
   if (!constants) return;
   let regexpString = '';
   Object.values(constants).forEach((element, index) => {
@@ -33,7 +33,7 @@ const isConstanse = (constants: IOperations) => {
 
 const unaryOperationsCreaterForRegexp = (
   functions: Partial<IUnaryOperations>
-) => {
+): string => {
   if (!functions) return;
   let regexpString = '';
   Object.keys(functions).forEach((element, index) => {
@@ -46,14 +46,16 @@ const unaryOperationsCreaterForRegexp = (
   return regexpString;
 };
 
-const isIdentifierCreater = (functions: Partial<IUnaryOperations>) =>
+const isIdentifierCreater = (functions: Partial<IUnaryOperations>): RegExp =>
   new RegExp(
     `(?<operator>${unaryOperationsCreaterForRegexp(
       functions
     )})(?<value>\\d+(\\.\\d+)?|\\[-?\\d+(\\.\\d+)?\\])`
   );
 
-const isUnaryExressionValidation = (functions: Partial<IUnaryOperations>) =>
+const isUnaryExressionValidation = (
+  functions: Partial<IUnaryOperations>
+): RegExp =>
   new RegExp(
     `(${unaryOperationsCreaterForRegexp(functions)})\\d+(\\.\\d+)?`,
     'g'

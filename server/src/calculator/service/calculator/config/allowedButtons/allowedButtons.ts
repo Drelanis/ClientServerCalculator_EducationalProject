@@ -1,7 +1,7 @@
 import { operations } from '../mainOperations/mainOperations.js';
 import numbers from '../numbers/numbers.js';
 
-const dataSetting = () => {
+const dataSetting = (): string[] => {
   const allowedButtons: Partial<string[]> = [];
   Object.values(operations).forEach((element) => {
     allowedButtons.push(element.content);

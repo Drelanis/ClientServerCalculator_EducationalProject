@@ -1,5 +1,5 @@
+import CalculatorApi from '../api/calculatorApi/CalculatorApi';
 import IModel from '../model/IModel';
-import { methods, routes } from '../routes/routes';
 import IController from './IController';
 
 class Controller implements IController {
@@ -12,14 +12,7 @@ class Controller implements IController {
       return;
     }
     try {
-      const response = await fetch(`${routes.main}${routes.calculate}`, {
-        method: `${methods.post}`,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ expression: context.getExpression() }),
-      });
-      const data = await response.json();
+      const data = await CalculatorApi.getCalculationResult(context.getExpression());
       if (!data.validate) {
         context.setResult(data.result);
         throw new Error(data.errorMessage);

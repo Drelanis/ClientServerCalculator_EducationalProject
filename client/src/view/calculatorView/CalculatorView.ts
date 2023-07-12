@@ -2,7 +2,6 @@ import IModel from '../../model/IModel';
 import { outputClassNames } from './classNames/classNamesOfElements';
 import AbstractBaseElement from './elements/abstractBaseElement/AbstractBaseElement';
 import CalculatorBody from './elements/calculatorBody/CalculatorBody';
-import Config from '../config/calculatorConfig';
 
 class CalculatorView extends AbstractBaseElement {
   constructor(public model: IModel) {
@@ -11,8 +10,7 @@ class CalculatorView extends AbstractBaseElement {
     this.render();
   }
 
-  async render(): Promise<void> {
-    await Config.createConfig();
+  render(): void {
     new CalculatorBody(this.model);
   }
 

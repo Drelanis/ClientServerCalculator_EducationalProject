@@ -2,7 +2,9 @@
 @import '../variables/mainVariables.scss';
 
 .calculator__control-buttons {
-  position: relative;
+  display: flex;
+  position: absolute;
+  top: 335px;
   height: 523px;
   width: 423px;
   background: $lightTheme-control-buttons-background;

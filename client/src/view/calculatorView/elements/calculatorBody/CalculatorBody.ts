@@ -13,6 +13,9 @@ import Output from '../output/Output';
 import ControlButtons from '../controlButtons/ControlButtons';
 import IModel from '../../../../model/IModel';
 import ErrorField from '../errorField/ErrorField';
+import Config from '../../../config/calculatorConfig';
+import Spinner from '../spinner/Spinner';
+import mainClassNames from '../../classNames/mainClassNames';
 
 class CalculatorBody extends AbstractBaseElement {
   constructor(public model: IModel) {
@@ -21,9 +24,13 @@ class CalculatorBody extends AbstractBaseElement {
     this.render();
   }
 
-  public render(): void {
-    const root: HTMLElement = document.querySelector('.main-content');
+  public async render(): Promise<void> {
+    const root: HTMLElement = document.querySelector(`.${mainClassNames.mainContent}`);
     root.append(this.createBody());
+    Spinner.render(`${calculatorControlButtons.root}`);
+    await Config.createConfig();
+    if (!Object.keys(Config.getConfig()).length) return;
+    Spinner.remove();
     new Options(this.model);
     new Input();
     new Output();

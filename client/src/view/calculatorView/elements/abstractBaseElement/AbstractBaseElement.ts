@@ -2,7 +2,7 @@ import { IOperations } from '../../../../interfaces/calculatorInterfaces';
 import { tags } from '../../config/config';
 
 abstract class AbstractBaseElement {
-  public abstract render(): void;
+  public abstract render(className?: string): void;
 
   protected addEventForElement<T>(
     element: HTMLElement,

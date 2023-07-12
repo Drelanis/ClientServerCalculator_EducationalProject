@@ -49,6 +49,10 @@ enum extraControlButtons {
   root = 'calculator__control-buttons_extra-actions',
 }
 
+enum spinnerClassNames {
+  root = 'spinner',
+}
+
 export {
   extraClassNames,
   calculator,
@@ -59,4 +63,5 @@ export {
   calculatorControlButtons,
   historyField,
   extraControlButtons,
+  spinnerClassNames,
 };

@@ -9,19 +9,15 @@ class CalculatorApi extends BaseApi {
   }
 
   public async getCalculationResult(expression: string): Promise<CalculationResponse> {
-    try {
-      const response = await this.post(`${calculateRoutes.calculate}`, { expression });
-      return response as Promise<CalculationResponse>;
-    } catch (error) {
-      console.log(error);
-    }
+    const response = await this.post(`${calculateRoutes.calculate}`, { expression });
+    return response as Promise<CalculationResponse>;
   }
 
   public async getOperationsConfig(): Promise<config> {
     try {
       return await this.get<config>(`${calculateRoutes.config}`);
     } catch (error) {
-      console.log(error);
+      alert(new Error("Server don't working"));
     }
   }
 }

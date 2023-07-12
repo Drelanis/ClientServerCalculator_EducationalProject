@@ -13,13 +13,13 @@ class Calculate {
       response.json({
         validate: true,
         errorMessage: '',
-        result: calculate(expression),
+        result: `${calculate(expression)}`,
       });
     } catch (error) {
       response.json({
         validate: false,
         errorMessage: error.message,
-        result: 0,
+        result: '0',
       });
     }
   }

@@ -6,3 +6,5 @@ import Controller from './controller/Controller';
 const model = new Model();
 new CalculatorView(model);
 new Controller(model);
+
+console.log();

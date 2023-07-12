@@ -1,4 +1,5 @@
 import IModel from '../model/IModel';
+import { methods, routes } from '../routes/routes';
 import IController from './IController';
 
 class Controller implements IController {
@@ -8,8 +9,8 @@ class Controller implements IController {
 
   public async calculate(context: IModel): Promise<void> {
     try {
-      const response = await fetch('http://localhost:4000/calculate', {
-        method: 'POST',
+      const response = await fetch(`${routes.main}${routes.calculate}`, {
+        method: `${methods.post}`,
         headers: {
           'Content-Type': 'application/json',
         },

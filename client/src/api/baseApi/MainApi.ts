@@ -1,4 +1,4 @@
-class BaseApi {
+class MainApi {
   protected baseUrl: string;
   protected baseHeader: { [key: string]: string };
 
@@ -24,4 +24,4 @@ class BaseApi {
   }
 }
 
-export default BaseApi;
+export default MainApi;

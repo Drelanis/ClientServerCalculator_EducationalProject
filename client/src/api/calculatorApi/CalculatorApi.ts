@@ -1,9 +1,9 @@
 import CalculationResponse from '../../types/calculationRsponse';
 import config from '../../types/config';
-import BaseApi from '../baseApi/MainApi';
+import MainApi from '../baseApi/MainApi';
 import calculateRoutes from '../routes/routes';
 
-class CalculatorApi extends BaseApi {
+class CalculatorApi extends MainApi {
   constructor() {
     super(calculateRoutes.main);
   }
@@ -17,7 +17,7 @@ class CalculatorApi extends BaseApi {
     try {
       return await this.get<config>(`${calculateRoutes.config}`);
     } catch (error) {
-      alert(new Error("Server don't working"));
+      alert(new Error('The server is down'));
     }
   }
 }

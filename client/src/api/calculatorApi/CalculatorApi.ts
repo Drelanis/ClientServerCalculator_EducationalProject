@@ -1,6 +1,6 @@
 import CalculationResponse from '../../types/calculationRsponse';
 import config from '../../types/config';
-import BaseApi from '../baseApi/MainApi12';
+import BaseApi from '../baseApi/MainApi';
 import calculateRoutes from '../routes/routes';
 
 class CalculatorApi extends BaseApi {

@@ -6,8 +6,11 @@ class Controller implements IController {
   constructor(public model: IModel) {
     this.model.addSubscribe('newMathExpression', this.calculate);
   }
-
   public async calculate(context: IModel): Promise<void> {
+    if (!context.getExpression()) {
+      context.setResult(0);
+      return;
+    }
     try {
       const response = await fetch(`${routes.main}${routes.calculate}`, {
         method: `${methods.post}`,
@@ -17,9 +20,9 @@ class Controller implements IController {
         body: JSON.stringify({ expression: context.getExpression() }),
       });
       const data = await response.json();
-      if (data.error) {
+      if (!data.validate) {
         context.setResult(data.result);
-        throw new Error(data.error);
+        throw new Error(data.errorMessage);
       }
       context.setResult(data.result);
     } catch (error) {

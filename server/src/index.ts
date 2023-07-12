@@ -1,6 +1,5 @@
 import express, { Express } from 'express';
 import cors from 'cors';
-
 import routerOfCalculate from './calculator/routes/calculate.js';
 import routerOfConfig from './calculator/routes/config.js';
 

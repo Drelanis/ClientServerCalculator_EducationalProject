@@ -10,9 +10,17 @@ class Calculate {
     try {
       const expression = request.body.expression;
       validationExpression(expression);
-      response.json({ error: false, result: calculate(expression) });
+      response.json({
+        validate: true,
+        errorMessage: '',
+        result: calculate(expression),
+      });
     } catch (error) {
-      response.json({ error: error.message, result: 0 });
+      response.json({
+        validate: false,
+        errorMessage: error.message,
+        result: 0,
+      });
     }
   }
 }

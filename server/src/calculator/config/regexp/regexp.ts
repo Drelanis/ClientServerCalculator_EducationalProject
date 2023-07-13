@@ -16,6 +16,7 @@ const constantRegexp = {
   validationMainOperators: /([/*\-+%^]){2}/,
   isParenthese: /\(|\)/g,
   isLetter: /[a-zA-Z]/,
+  invalidCharacter: /^(?!.*[\[\]@#$"'{}№&:;\\|<>,]).*$/,
 };
 
 const isConstanse = (constants: IOperations): RegExp => {

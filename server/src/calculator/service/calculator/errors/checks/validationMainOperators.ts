@@ -1,4 +1,4 @@
-import { constantRegexp } from '../../config/regexp/regexp.js';
+import { constantRegexp } from '../../../../config/regexp/regexp.js';
 
 const validationMainOperators = (expression: string): boolean =>
   !constantRegexp.validationMainOperators.test(expression);

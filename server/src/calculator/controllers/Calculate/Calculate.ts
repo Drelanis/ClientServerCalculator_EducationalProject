@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import calculate from '../../service/calculator/calculate/calculate.js';
-import validationExpression from '../../service/calculator/errors/validationExpression.js';
+import calculateResponse from '../../entities/calculateResponse/calculateResponse.js';
 
 class Calculate {
   public async calculateExression(
@@ -8,19 +8,11 @@ class Calculate {
     response: Response
   ): Promise<void> {
     try {
-      const expression = request.body.expression;
-      validationExpression(expression);
-      response.json({
-        validate: true,
-        errorMessage: '',
-        result: `${calculate(expression)}`,
-      });
+      response.json(
+        calculateResponse(true, '', `${calculate(request.body.expression)}`)
+      );
     } catch (error) {
-      response.json({
-        validate: false,
-        errorMessage: error.message,
-        result: '0',
-      });
+      response.json(calculateResponse(false, 'Oops, something is wrong', '0'));
     }
   }
 }

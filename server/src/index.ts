@@ -1,15 +1,15 @@
 import express, { Express } from 'express';
 import cors from 'cors';
-import calculateRoutes from './calculator/routes/calculate.js';
-import configRoutes from './calculator/routes/config.js';
+import createRoutes from './calculator/routes/createRoutes.js';
+import RouteCreator from './calculator/routes/routeCreator/RouteCreator.js';
+import routers from './calculator/routes/createRoutes.js';
 
 const app: Express = express();
 
 const PORT: number = 4000;
 
-app.listen(PORT);
-
 app.use(express.json());
 app.use(cors());
-app.use(calculateRoutes);
-app.use(configRoutes);
+routers;
+RouteCreator.getRoutes().forEach((route) => app.use(route));
+app.listen(PORT);

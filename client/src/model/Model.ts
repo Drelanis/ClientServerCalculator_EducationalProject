@@ -37,6 +37,10 @@ export class Model extends Observer implements IModel {
   getErrorMessage(): string {
     return this.error.message;
   }
+
+  clearErrorField() {
+    this.error.message = '';
+  }
 }
 
 export default Model;

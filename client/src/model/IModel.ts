@@ -7,6 +7,7 @@ interface IModel extends IObserver {
   getExpression(): string;
   getResult(): number;
   getErrorMessage(): string;
+  clearErrorField(): void;
 }
 
 export default IModel;

@@ -6,6 +6,7 @@ class Controller implements IController {
   constructor(public model: IModel) {
     this.model.addSubscribe('newMathExpression', this.calculate);
   }
+
   public async calculate(context: IModel): Promise<void> {
     if (!context.getExpression()) {
       context.setResult(0);

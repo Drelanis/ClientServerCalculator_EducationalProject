@@ -26,14 +26,25 @@ class CustomEvents {
   private calculateExpressionEvent() {
     const input: HTMLInputElement = document.querySelector(`.${inputClassNames.inputField}`);
 
-    if (this.model.getExpression() === input.value) return;
+    if (this.model.getExpression() === input.value) {
+      if (this.model.getErrorMessage()) {
+        this.model.setError(this.model.getErrorMessage());
+        this.model.setResult(0);
+      }
+      return;
+    }
+    this.model.clearErrorField();
     if (input.value) {
-      document.querySelector(`.${outputClassNames.resultField}`).textContent = '';
-      Spinner.render(`${outputClassNames.resultField}`);
-      const spinner: HTMLElement = document.querySelector(`.${spinnerClassNames.root}`);
-      spinner.style.height = '20px';
-      spinner.style.width = '20px';
-      spinner.style.borderWidth = '5px';
+      setTimeout(() => {
+        const outputField = document.querySelector(`.${outputClassNames.resultField}`);
+        if (outputField.textContent) return;
+        document.querySelector(`.${outputClassNames.resultField}`).textContent = '';
+        Spinner.render(`${outputClassNames.resultField}`);
+        const spinner: HTMLElement = document.querySelector(`.${spinnerClassNames.root}`);
+        spinner.style.height = '20px';
+        spinner.style.width = '20px';
+        spinner.style.borderWidth = '5px';
+      }, 200);
     }
     this.model.setExpression(input.value);
   }

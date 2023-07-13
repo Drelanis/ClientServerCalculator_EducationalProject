@@ -68,6 +68,9 @@ const calculateBinaryOperations = (expression: string) => {
   while (!operatorStack.isEmpty()) {
     numberStack.push(performOperation(numberStack, operatorStack));
   }
+  if (Number.isNaN(numberStack.peek()))
+    throw new Error('Syntax error in expression');
+
   return numberStack.pop();
 };
 

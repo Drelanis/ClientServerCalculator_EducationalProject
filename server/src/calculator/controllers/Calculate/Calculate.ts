@@ -12,7 +12,7 @@ class Calculate {
         calculateResponse(true, '', `${calculate(request.body.expression)}`)
       );
     } catch (error) {
-      response.json(calculateResponse(false, 'Oops, something is wrong', '0'));
+      response.json(calculateResponse(false, error.message, '0'));
     }
   }
 }

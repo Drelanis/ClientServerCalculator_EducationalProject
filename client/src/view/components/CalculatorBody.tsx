@@ -114,7 +114,14 @@ const CalculatorBody: FC<CalculatorBodyProps> = ({ model }) => {
         isExtraOperation={isExtraOperation}
         calculate={calculateExpression}
       />
-      {isHistory ? <CalculatorHistory setExpression={setExpression} /> : <></>}
+      {isHistory ? (
+        <CalculatorHistory
+          setExpression={setExpression}
+          setResult={setResult}
+        />
+      ) : (
+        <></>
+      )}
     </div>
   );
 };

@@ -15,9 +15,13 @@ interface IHistoryItem {
 
 interface ICalculatorHistoryProps {
   setExpression: React.Dispatch<React.SetStateAction<string>>;
+  setResult: React.Dispatch<React.SetStateAction<string>>;
 }
 
-const CalculatorHistory: FC<ICalculatorHistoryProps> = ({ setExpression }) => {
+const CalculatorHistory: FC<ICalculatorHistoryProps> = ({
+  setExpression,
+  setResult,
+}) => {
   const { isDarkTheme } = useContext(CalculatorThemeContext);
   const [isHistory, setHistory] = useState([] as IHistoryItem[]);
   const [fetchHistory, historyLoading, historyError] = useFetching(async () => {
@@ -31,8 +35,14 @@ const CalculatorHistory: FC<ICalculatorHistoryProps> = ({ setExpression }) => {
 
   const putExressionInInput = (
     event: React.MouseEvent<HTMLDivElement, MouseEvent>
-  ) => {
+  ): void => {
     setExpression(event.currentTarget.children[0].textContent as string);
+    const historyItemResult = event.currentTarget.children[1]
+      .textContent as string;
+    const outputValue = historyItemResult.match(/[0-9]+(?:\.[0-9]+)?/g) as
+      | RegExpMatchArray
+      | string;
+    setResult(outputValue as string);
   };
 
   return (

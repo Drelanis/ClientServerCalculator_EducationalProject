@@ -1,3 +1,4 @@
+import isObjectEmpty from '../../utils/isObjectEmpty.js';
 import dataSetting from './allowedButtons/allowedButtons.js';
 import {
   extraConstance,
@@ -10,17 +11,27 @@ import {
   topMainOperations,
 } from './mainOperations/mainOperations.js';
 import numbers from './numbers/numbers.js';
-import config from './types/config.js';
+import ConfigType from './types/config.js';
 
 class Config implements IConfig {
-  private config: Partial<config> = {};
+  private config: Partial<ConfigType> = {};
 
   constructor() {
     this.createConfig();
   }
 
-  public get(): Partial<config> {
+  public get(): Partial<ConfigType> {
     return this.config;
+  }
+
+  private isExtraOperations() {
+    if (
+      isObjectEmpty(this.config.extraConstance) ||
+      isObjectEmpty(this.config.extraOperationsBinary) ||
+      isObjectEmpty(this.config.extraOperationsUnary)
+    ) {
+      return true;
+    }
   }
 
   private createConfig(): void {
@@ -28,6 +39,7 @@ class Config implements IConfig {
     this.config.extraConstance = extraConstance;
     this.config.extraOperationsBinary = extraOperationsBinary;
     this.config.extraOperationsUnary = extraOperationsUnary;
+    this.config.isExtraOperations = this.isExtraOperations();
     this.config.topMainOperations = topMainOperations;
     this.config.rightMainOperations = rightMainOperations;
     this.config.numbers = numbers;

@@ -17,6 +17,7 @@ const constantRegexp = {
   isParenthese: /\(|\)/g,
   isLetter: /[a-zA-Z]/,
   invalidCharacter: /^(?!.*[\[\]@#$"'{}№&:;\\|<>,]).*$/,
+  checkingNumbersAfterTheParenthesis: /\)(\d+(\.\d+)*)/,
 };
 
 const isConstanse = (constants: IOperations): RegExp => {

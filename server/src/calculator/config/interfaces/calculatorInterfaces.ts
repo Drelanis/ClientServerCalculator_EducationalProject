@@ -1,4 +1,4 @@
-import config from '../types/config.js';
+import ConfigType from '../types/config.js';
 
 interface IOperations {
   [key: string]: IBinaryOperation | IUnaryOperations;
@@ -6,6 +6,7 @@ interface IOperations {
 
 interface IMathOperation {
   content: string;
+  customAtcion?: boolean;
 }
 
 interface IBinaryOperation extends IMathOperation {
@@ -14,11 +15,11 @@ interface IBinaryOperation extends IMathOperation {
 }
 
 interface IUnaryOperations extends IMathOperation {
-  [key: string]: ((number: number) => number) | string;
+  [key: string]: ((number: number) => number) | string | boolean;
 }
 
 interface IConfig {
-  get(): Partial<config>;
+  get(): Partial<ConfigType>;
 }
 
 export { IOperations, IBinaryOperation, IUnaryOperations, IConfig };

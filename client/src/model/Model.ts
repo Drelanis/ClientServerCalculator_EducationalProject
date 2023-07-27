@@ -7,10 +7,6 @@ export class Model extends Observer implements IModel {
   private result: number = 0;
   private error: Partial<errorObject> = {};
 
-  constructor() {
-    super();
-  }
-
   setExpression(updatedExpression: string): void {
     this.expression = updatedExpression;
     this.notifyObserver(this, 'newMathExpression');
@@ -34,11 +30,11 @@ export class Model extends Observer implements IModel {
     return this.result;
   }
 
-  getErrorMessage(): string {
+  getErrorMessage(): string | undefined {
     return this.error.message;
   }
 
-  clearErrorField() {
+  clearErrorField(): void {
     this.error.message = '';
   }
 }

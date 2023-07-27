@@ -9,6 +9,32 @@
   background: $lightTheme-control-buttons-background;
   border-radius: $border-radius;
   animation: elementExpandUp 0.5s forwards;
+  color: $lightTheme-main-text-color;
+  overflow-y: auto;
+  &_item {
+    display: flex;
+    flex-direction: column;
+    text-align: right;
+    padding: 15px 30px;
+    margin: 30px;
+    border: 5px solid $lightTheme-input-text-color;
+    border-radius: 40px;
+    word-wrap: break-word;
+    cursor: $main-cursor-type-for-buttons;
+    .calculator__history_item-expression {
+    }
+    .calculator__history_item-result {
+      margin-top: 10px;
+      text-overflow: ellipsis;
+    }
+  }
+  &_item:active {
+    box-shadow: 0px 0px 50px -20px rgba(0, 0, 0, 1);
+  }
+}
+
+.calculator__history::-webkit-scrollbar {
+  width: 0px;
 }
 
 @keyframes elementExpandUp {

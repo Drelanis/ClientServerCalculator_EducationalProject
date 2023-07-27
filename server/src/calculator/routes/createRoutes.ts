@@ -10,6 +10,7 @@ import RouteCreator from './routeCreator/RouteCreator.js';
 import ConfigController from '../controllers/Config/ConfigController.js';
 import routes from './config/routes.js';
 import methods from './config/methods.js';
+import HistoryController from '../controllers/History/HistoryController.js';
 
 const routers = {
   config: {
@@ -29,6 +30,13 @@ const routers = {
       validateNumbers,
       validateMainOperators,
       Calculate.calculateExression
+    ),
+  },
+  history: {
+    GET: RouteCreator.create(
+      routes.history,
+      methods.get,
+      HistoryController.get
     ),
   },
 };

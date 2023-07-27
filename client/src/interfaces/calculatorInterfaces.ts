@@ -1,4 +1,4 @@
-import config from '../types/config.js';
+import ConfigType from '../types/config.js';
 
 interface IOperations {
   [key: string]: IBinaryOperation | IUnaryOperations;
@@ -6,6 +6,7 @@ interface IOperations {
 
 interface IMathOperation {
   content: string;
+  customAction?: boolean;
 }
 
 interface IBinaryOperation extends IMathOperation {
@@ -14,11 +15,36 @@ interface IBinaryOperation extends IMathOperation {
 }
 
 interface IUnaryOperations extends IMathOperation {
-  [key: string]: ((number: number) => number) | string;
+  [key: string]: ((number: number) => number) | string | boolean | undefined;
 }
 
 interface IConfig {
-  get(): Partial<config>;
+  get(): Partial<ConfigType>;
 }
 
-export { IOperations, IBinaryOperation, IUnaryOperations, IConfig };
+interface IConfigContext {
+  config: ConfigType;
+  configLoading: boolean;
+  configError: string;
+}
+
+interface IThemeContext {
+  isDarkTheme: null | boolean;
+  setDarkTheme: React.Dispatch<React.SetStateAction<boolean>>;
+}
+
+interface IHistoryItem {
+  id: number;
+  exression: string;
+  result: string;
+}
+
+export type {
+  IOperations,
+  IBinaryOperation,
+  IUnaryOperations,
+  IConfig,
+  IConfigContext,
+  IThemeContext,
+  IHistoryItem,
+};

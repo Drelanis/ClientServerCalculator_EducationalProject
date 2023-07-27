@@ -14,3 +14,7 @@
   padding: 2px;
   color: $lightTheme-input-text-color;
 }
+
+.calculator-input-field::-webkit-scrollbar {
+  width: 0px;
+}

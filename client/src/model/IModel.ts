@@ -6,7 +6,7 @@ interface IModel extends IObserver {
   setError(error: string): void;
   getExpression(): string;
   getResult(): number;
-  getErrorMessage(): string;
+  getErrorMessage(): string | undefined;
   clearErrorField(): void;
 }
 

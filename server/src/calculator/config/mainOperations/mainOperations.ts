@@ -1,8 +1,9 @@
 import { IOperations } from '../interfaces/calculatorInterfaces.js';
 
 const topMainOperations: IOperations = {
-  allCLean: {
+  allClean: {
     content: 'AC',
+    customAction: true,
   },
   openBracket: {
     content: '(',
@@ -45,6 +46,7 @@ const rightMainOperations: IOperations = {
   },
   equal: {
     content: '=',
+    customAction: true,
   },
 };
 

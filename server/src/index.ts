@@ -1,6 +1,5 @@
 import express, { Express } from 'express';
 import cors from 'cors';
-import createRoutes from './calculator/routes/createRoutes.js';
 import RouteCreator from './calculator/routes/routeCreator/RouteCreator.js';
 import routers from './calculator/routes/createRoutes.js';
 

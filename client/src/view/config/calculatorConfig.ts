@@ -1,15 +1,15 @@
 import CalculatorApi from '../../api/calculatorApi/CalculatorApi';
-import config from '../../types/config';
+import ConfigType from '../../types/config';
 
 class Config {
-  private config: Partial<config> = {};
+  private config: Partial<ConfigType> = {};
 
   public async createConfig(): Promise<void> {
     const response = await CalculatorApi.getOperationsConfig();
     this.config = { ...response };
   }
 
-  public getConfig(): Partial<config> {
+  public getConfig(): Partial<ConfigType> {
     return this.config;
   }
 }

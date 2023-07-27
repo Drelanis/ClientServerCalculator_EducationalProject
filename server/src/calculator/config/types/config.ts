@@ -1,8 +1,9 @@
 import { IOperations } from '../interfaces/calculatorInterfaces.js';
 
-type config = {
-  [key: string]: IOperations | Partial<string[]>;
+type ConfigType = {
+  [key: string]: IOperations | Partial<string[]> | boolean;
+  isExtraOperatios: boolean;
   allowedButtons: Partial<string[]>;
 };
 
-export default config;
+export default ConfigType;

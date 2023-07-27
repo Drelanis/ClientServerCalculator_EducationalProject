@@ -1,3 +1,5 @@
+import { constantRegexp } from '../../../../config/regexp/regexp.js';
+
 const validationNumbers = (expression: string): boolean => {
   if (!expression) return true;
   let validExpression = true;
@@ -11,6 +13,8 @@ const validationNumbers = (expression: string): boolean => {
       validExpression = false;
     }
   });
+  if (expression.match(constantRegexp.checkingNumbersAfterTheParenthesis))
+    validExpression = false;
   return validExpression;
 };
 

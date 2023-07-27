@@ -8,19 +8,17 @@ class Controller implements IController {
   }
 
   public async calculate(context: IModel): Promise<void> {
-    if (!context.getExpression()) {
-      context.setResult(0);
-      return;
-    }
     try {
-      const data = await CalculatorApi.getCalculationResult(context.getExpression());
+      const data = await CalculatorApi.getCalculationResult(
+        context.getExpression()
+      );
       if (!data.validate) {
         context.setResult(data.result);
         throw new Error(data.errorMessage);
       }
       context.setResult(data.result);
     } catch (error) {
-      context.setError(error);
+      context.setError(error as string);
     }
   }
 }

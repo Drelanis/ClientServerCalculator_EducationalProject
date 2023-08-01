@@ -39,4 +39,4 @@ export class Model extends Observer implements IModel {
   }
 }
 
-export default Model;
+export default new Model();

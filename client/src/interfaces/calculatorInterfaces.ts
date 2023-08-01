@@ -28,11 +28,6 @@ interface IConfigContext {
   configError: string;
 }
 
-interface IThemeContext {
-  isDarkTheme: null | boolean;
-  setDarkTheme: React.Dispatch<React.SetStateAction<boolean>>;
-}
-
 interface IHistoryItem {
   id: number;
   exression: string;
@@ -45,6 +40,5 @@ export type {
   IUnaryOperations,
   IConfig,
   IConfigContext,
-  IThemeContext,
   IHistoryItem,
 };

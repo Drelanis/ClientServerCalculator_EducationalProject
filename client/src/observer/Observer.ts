@@ -16,7 +16,9 @@ class Observer implements IObserver {
   }
 
   public notifyObserver(context: IModel, observer: string): void {
-    Object.values(this.observers[observer]).forEach((subscriber: Function) => subscriber(context));
+    Object.values(this.observers[observer]).forEach((subscriber: Function) =>
+      subscriber(context)
+    );
   }
 }
 

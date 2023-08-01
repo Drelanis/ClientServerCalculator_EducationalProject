@@ -6,6 +6,5 @@ import Controller from './controller/Controller';
 
 const root = document.querySelector(`.${mainClassNames.mainContent}`);
 
-const model = new Model();
-new Controller(model);
-ReactDOM.createRoot(root as HTMLElement).render(<App model={model} />);
+new Controller(Model);
+ReactDOM.createRoot(root as HTMLElement).render(<App />);

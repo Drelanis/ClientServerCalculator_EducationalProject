@@ -12,7 +12,7 @@ class Controller implements IController {
       const data = await CalculatorApi.getCalculationResult(
         context.getExpression()
       );
-      if (!data.validate) {
+      if (!data.isError) {
         context.setResult(data.result);
         throw new Error(data.errorMessage);
       }

@@ -7,6 +7,8 @@ import {
 } from './extraOperations/extraOperations.js';
 import { IConfig } from './interfaces/calculatorInterfaces.js';
 import {
+  allClean,
+  equal,
   rightMainOperations,
   topMainOperations,
 } from './mainOperations/mainOperations.js';
@@ -41,7 +43,9 @@ class Config implements IConfig {
     this.config.extraOperationsUnary = extraOperationsUnary;
     this.config.isExtraOperations = this.isExtraOperations();
     this.config.topMainOperations = topMainOperations;
+    this.config.allClean = allClean;
     this.config.rightMainOperations = rightMainOperations;
+    this.config.equal = equal;
     this.config.numbers = numbers;
   }
 }

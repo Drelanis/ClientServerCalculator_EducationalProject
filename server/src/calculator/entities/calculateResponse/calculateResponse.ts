@@ -1,12 +1,12 @@
 import calculateResponse from '../../config/types/calculateResponse.js';
 
 const getCalculateResponse: calculateResponse = (
-  validate,
+  isError,
   errorMessage,
   result
 ) => {
   return {
-    validate,
+    isError,
     errorMessage,
     result,
   };

@@ -1,9 +1,6 @@
 import { createContext } from 'react';
 import config from '../../types/config';
-import {
-  IConfigContext,
-  IThemeContext,
-} from '../../interfaces/calculatorInterfaces';
+import { IConfigContext } from '../../interfaces/calculatorInterfaces';
 
 export const CalculatorConfigContext = createContext<IConfigContext>({
   config: {} as config,
@@ -11,15 +8,10 @@ export const CalculatorConfigContext = createContext<IConfigContext>({
   configError: '',
 });
 
-export const CalculatorThemeContext = createContext<IThemeContext>({
-  isDarkTheme: false,
-  setDarkTheme: () => false,
-});
-
-interface IExtraOperation {
-  isExtraOperation: boolean;
-}
-
-export const ExtraOperationContext = createContext<IExtraOperation>({
-  isExtraOperation: false,
+export const CalculateContext = createContext({
+  calculate: () => {},
+  allClean: () => {},
+  showResult: () => {},
+  showError: () => {},
+  enterButtonValue: () => {},
 });

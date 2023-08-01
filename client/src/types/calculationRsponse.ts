@@ -1,5 +1,5 @@
 type CalculationResponse = {
-  validate: boolean;
+  isError: boolean;
   errorMessage: string;
   result: number;
 };

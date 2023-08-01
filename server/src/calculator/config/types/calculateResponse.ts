@@ -1,11 +1,11 @@
 interface ICalculateResponse {
-  validate: boolean;
+  isError: boolean;
   errorMessage: string;
   result: string;
 }
 
 type calculateResponse = (
-  validate: boolean,
+  isError: boolean,
   errorMessage: string,
   result: string
 ) => ICalculateResponse;

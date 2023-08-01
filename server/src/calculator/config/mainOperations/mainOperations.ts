@@ -1,10 +1,18 @@
 import { IOperations } from '../interfaces/calculatorInterfaces.js';
 
-const topMainOperations: IOperations = {
+const allClean = {
   allClean: {
     content: 'AC',
-    customAction: true,
   },
+};
+
+const equal = {
+  equal: {
+    content: '=',
+  },
+};
+
+const topMainOperations: IOperations = {
   openBracket: {
     content: '(',
   },
@@ -44,10 +52,6 @@ const rightMainOperations: IOperations = {
       return firstOperand + secondOperand;
     },
   },
-  equal: {
-    content: '=',
-    customAction: true,
-  },
 };
 
 const operations: IOperations = {
@@ -55,4 +59,4 @@ const operations: IOperations = {
   ...rightMainOperations,
 };
 
-export { operations, topMainOperations, rightMainOperations };
+export { operations, topMainOperations, rightMainOperations, equal, allClean };

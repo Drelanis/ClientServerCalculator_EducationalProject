@@ -1,19 +1,14 @@
 import { FC } from 'react';
 import iconsClassNames from '../../classNames/icons';
 
-interface IIconProps {
-  rootClassName: string;
-  iconClassNames: string;
-  onClick?: () => void;
-}
+interface IIconProps extends React.HTMLProps<HTMLLIElement> {}
 
-const Icon: FC<IIconProps> = ({ iconClassNames, rootClassName, onClick }) => {
+const Icon: FC<IIconProps> = ({ className, ...props }) => {
   return (
-    <div className={rootClassName} onClick={onClick}>
-      <i
-        className={[iconsClassNames.mainClassName, iconClassNames].join(' ')}
-      ></i>
-    </div>
+    <i
+      className={`${iconsClassNames.mainClassName} ${className}`}
+      {...props}
+    ></i>
   );
 };
 

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { optionsClassNames } from '../../classNames/classNamesOfElements';
+import { optionsClassNames } from '../classNames/classNamesOfElements';
 
 const Checkbox: FC = () => {
   return (

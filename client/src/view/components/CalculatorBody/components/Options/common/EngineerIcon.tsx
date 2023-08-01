@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { optionsClassNames } from '../../../../../classNames/classNamesOfElements';
-import Icon from '../../../../UI/Icon';
+import Icon from '../../../../../common/Icon';
 import iconsClassNames from '../../../../../classNames/icons';
 
 interface IEngineerIconProps extends React.HTMLProps<HTMLDivElement> {}

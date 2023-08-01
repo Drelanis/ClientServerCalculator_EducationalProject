@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import Icon from '../../../../UI/Icon';
+import Icon from '../../../../../common/Icon';
 import { outputClassNames } from '../../../../../classNames/classNamesOfElements';
 import iconsClassNames from '../../../../../classNames/icons';
 

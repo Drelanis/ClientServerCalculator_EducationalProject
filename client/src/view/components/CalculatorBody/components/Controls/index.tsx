@@ -1,8 +1,8 @@
 import { FC, useContext } from 'react';
 import { controlButtonsClassNames } from '../../../../classNames/classNamesOfElements';
 import { CalculateContext, CalculatorConfigContext } from '../../../../context';
-import Loader from '../../common/Loader';
-import Error from '../../common/Error';
+import Loader from '../../../../common/Loader';
+import Error from '../../../../common/Error';
 import ControlButtons from './components/ControlsButtons';
 
 interface IOptionsProps {

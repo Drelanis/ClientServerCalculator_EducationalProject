@@ -2,8 +2,8 @@ import { FC, useEffect, useState } from 'react';
 import useFetching from '../../../../hooks/useFetching';
 import CalculatorApi from '../../../../../api/calculatorApi/CalculatorApi';
 import { historyField } from '../../../../classNames/classNamesOfElements';
-import Error from '../../common/Error';
-import Loader from '../../common/Loader';
+import Error from '../../../../common/Error';
+import Loader from '../../../../common/Loader';
 import { IHistoryItem } from '../../../../../interfaces/calculatorInterfaces';
 import HistoryList from './components/HistoryList';
 

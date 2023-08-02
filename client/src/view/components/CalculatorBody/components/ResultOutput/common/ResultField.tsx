@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { outputClassNames } from '../../../../../classNames/classNamesOfElements';
-import Loader, { smallLoader } from '../../../common/Loader';
+import Loader, { smallLoader } from '../../../../../common/Loader';
 
 interface IResultFieldProps {
   result: string;

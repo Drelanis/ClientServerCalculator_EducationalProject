@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { errorClassNames } from '../../../classNames/classNamesOfElements';
-import iconsClassNames from '../../../classNames/icons';
-import Icon from '../../../common/Icon';
+import { errorClassNames } from '../classNames/classNamesOfElements';
+import iconsClassNames from '../classNames/icons';
+import Icon from './Icon';
 
 type ErrorProps = {
   message: string;

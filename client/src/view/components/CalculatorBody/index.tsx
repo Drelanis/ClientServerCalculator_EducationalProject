@@ -5,7 +5,7 @@ import ExpressionInput from './components/ExressionInput';
 import ResultOutput from './components/ResultOutput';
 import Controls from './components/Controls';
 import History from './/components/History';
-import Error from './common/Error';
+import Error from '../../common/Error';
 import useTheme from '../../hooks/useTheme';
 import useToggleFields from '../../hooks/useToggleFields';
 import useCalculatationHandler from '../../hooks/useCalculatationHandler';

@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-import { CALCULATOR_ROUTE } from './utils/consts';
-import { publicRoutes } from './view/routes/routes';
+import { CALCULATOR_ROUTE } from '../../../utils/consts';
+import { publicRoutes } from '../../../view/routes/routes';
 import { FC } from 'react';
 
 const AppRouter: FC = () => {

@@ -10,6 +10,7 @@
   background-color: rgb(255, 165, 0, 0.55);
   border-radius: 40px;
   animation: elementMovesApart 0.5s ease-out forwards;
+  z-index: 2;
 
   &_icon {
     margin: auto 12px;

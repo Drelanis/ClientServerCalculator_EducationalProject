@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { BrowserRouter } from 'react-router-dom';
-import AppRouter from './AppRouter';
 import './view/styles/index.scss';
+import AppRouter from './view/components/AppRouter.tsx';
 
 const App: FC = () => {
   return (

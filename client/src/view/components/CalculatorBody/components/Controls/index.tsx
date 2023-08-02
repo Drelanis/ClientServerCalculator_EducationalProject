@@ -8,8 +8,6 @@ import ControlButtons from './components/ControlsButtons';
 interface IOptionsProps {
   isExtraOperation: boolean;
   calculate: () => void;
-  showResult: () => void;
-  showError: () => void;
   allClean: () => void;
   enterButtonValue: () => void;
 }
@@ -17,15 +15,13 @@ interface IOptionsProps {
 const Controls: FC<IOptionsProps> = ({
   isExtraOperation,
   calculate,
-  showResult,
-  showError,
   allClean,
   enterButtonValue,
 }) => {
   const { configLoading, configError } = useContext(CalculatorConfigContext);
   return (
     <CalculateContext.Provider
-      value={{ calculate, showResult, showError, allClean, enterButtonValue }}
+      value={{ calculate, allClean, enterButtonValue }}
     >
       <div className={controlButtonsClassNames.root}>
         {configLoading && <Loader />}

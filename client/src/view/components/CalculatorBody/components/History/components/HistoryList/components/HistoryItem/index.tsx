@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { historyField } from '../../../../../classNames/classNamesOfElements';
-import { IHistoryItem } from '../../../../../../interfaces/calculatorInterfaces';
+import { historyField } from '../../../../../../../../classNames/classNamesOfElements';
+import { IHistoryItem } from '../../../../../../../../../interfaces/calculatorInterfaces';
 
 interface IHistoryItemProps {
   historyElement: IHistoryItem;

@@ -5,7 +5,7 @@ import { historyField } from '../../../../classNames/classNamesOfElements';
 import Error from '../../common/Error';
 import Loader from '../../common/Loader';
 import { IHistoryItem } from '../../../../../interfaces/calculatorInterfaces';
-import HistoryItem from './common/HistoryItem';
+import HistoryList from './components/HistoryList';
 
 interface IHistoryProps {
   action: (expression: string, result: string) => void;
@@ -29,13 +29,7 @@ const History: FC<IHistoryProps> = ({ action }) => {
         <Loader style={{ display: 'flex', marginTop: '170px' }} />
       )}
       {historyError && <Error message={historyError} />}
-      {isHistory.map((element) => (
-        <HistoryItem
-          key={element.id}
-          historyElement={element}
-          action={action}
-        />
-      ))}
+      {<HistoryList elements={isHistory} action={action} />}
     </div>
   );
 };

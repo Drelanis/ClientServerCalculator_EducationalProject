@@ -1,6 +1,6 @@
 import { FC } from 'react';
 import { outputClassNames } from '../../../../../classNames/classNamesOfElements';
-import Loader from '../../../common/Loader';
+import Loader, { smallLoader } from '../../../common/Loader';
 
 interface IResultFieldProps {
   result: string;
@@ -10,9 +10,7 @@ interface IResultFieldProps {
 const ResultField: FC<IResultFieldProps> = ({ result, isLoad }) => {
   return (
     <span className={outputClassNames.resultField}>
-      {isLoad && (
-        <Loader style={{ height: '20px', width: '20px', borderWidth: '5px' }} />
-      )}
+      {isLoad && <Loader style={smallLoader} />}
       {result ? result : '0'}
     </span>
   );

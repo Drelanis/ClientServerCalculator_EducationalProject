@@ -11,7 +11,5 @@ export const CalculatorConfigContext = createContext<IConfigContext>({
 export const CalculateContext = createContext({
   calculate: () => {},
   allClean: () => {},
-  showResult: () => {},
-  showError: () => {},
   enterButtonValue: () => {},
 });

@@ -21,4 +21,10 @@ const Loader: FC<LoaderProps> = ({ style }) => {
   ) : null;
 };
 
+export const smallLoader = {
+  height: '20px',
+  width: '20px',
+  borderWidth: '5px',
+};
+
 export default Loader;

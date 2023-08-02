@@ -17,15 +17,9 @@ const CalculatorBody: FC = () => {
   const { isExtraOperation, setExtraOperation, isHistory, setHistory } =
     useToggleFields();
   const inputRef = useRef<HTMLTextAreaElement | null>(null);
-  const {
-    result,
-    isResultLoading,
-    calculate,
-    showResult,
-    allClean,
-    inputHistoryItem,
-  } = useCalculatationHandler(inputRef);
-  const { error, showError, removeError } = useErrorHandler();
+  const { result, isResultLoading, calculate, allClean, inputHistoryItem } =
+    useCalculatationHandler(inputRef);
+  const { error, removeError } = useErrorHandler();
   const { enterButtonValue } = useInputHandler(inputRef);
 
   return (
@@ -45,8 +39,6 @@ const CalculatorBody: FC = () => {
         <Controls
           isExtraOperation={isExtraOperation}
           calculate={calculate}
-          showResult={showResult}
-          showError={showError}
           allClean={allClean}
           enterButtonValue={enterButtonValue}
         />

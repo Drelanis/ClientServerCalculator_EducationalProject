@@ -42,7 +42,6 @@ const useCalculatationHandler = (
     result,
     isResultLoading,
     calculate,
-    showResult,
     allClean,
     setResultLoading,
     setResult,

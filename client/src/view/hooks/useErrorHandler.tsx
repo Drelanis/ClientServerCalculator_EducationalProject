@@ -16,7 +16,7 @@ const useErrorHandler = () => {
     setError('');
   };
 
-  return { error, showError, removeError };
+  return { error, removeError };
 };
 
 export default useErrorHandler;

@@ -24,7 +24,7 @@ const CalculatorBody: FC = () => {
 
   return (
     <ConfigContextProvider>
-      <div className={bodyClassName} onClick={() => removeError()}>
+      <div className={bodyClassName} onClick={removeError}>
         <Options
           isDarkTheme={isDarkTheme}
           toggleTheme={setDarkTheme}

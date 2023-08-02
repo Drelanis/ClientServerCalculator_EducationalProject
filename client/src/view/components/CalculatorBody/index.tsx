@@ -8,7 +8,7 @@ import History from './/components/History';
 import Error from './common/Error';
 import useTheme from '../../hooks/useTheme';
 import useToggleFields from '../../hooks/useToggleFields';
-import useResultHandler from '../../hooks/calculatationHandler';
+import useCalculatationHandler from '../../hooks/useCalculatationHandler';
 import useErrorHandler from '../../hooks/useErrorHandler';
 import useInputHandler from '../../hooks/useInputHandler';
 
@@ -24,7 +24,7 @@ const CalculatorBody: FC = () => {
     showResult,
     allClean,
     inputHistoryItem,
-  } = useResultHandler(inputRef);
+  } = useCalculatationHandler(inputRef);
   const { error, showError, removeError } = useErrorHandler();
   const { enterButtonValue } = useInputHandler(inputRef);
 

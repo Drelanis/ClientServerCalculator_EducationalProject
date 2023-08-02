@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import Model from '../../model/Model';
 
-const useResultHandler = (
+const useCalculatationHandler = (
   inputRef: React.MutableRefObject<HTMLTextAreaElement | null>
 ) => {
   const [result, setResult] = useState('');
@@ -50,4 +50,4 @@ const useResultHandler = (
   };
 };
 
-export default useResultHandler;
+export default useCalculatationHandler;

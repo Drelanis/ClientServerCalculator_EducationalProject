@@ -48,4 +48,7 @@
   .numbers:active {
     background: $darkTheme-main-buttons-hover-background;
   }
+  .calculator__error {
+    color: $darkTheme-main-text-color;
+  }
 }

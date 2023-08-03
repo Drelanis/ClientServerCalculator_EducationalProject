@@ -2,7 +2,7 @@ import { Request, Response } from 'express';
 import calculate from '../../service/calculator/calculate/calculate.js';
 import calculateResponse from '../../entities/calculateResponse/calculateResponse.js';
 
-class Calculate {
+class CalculateController {
   public async calculateExression(
     request: Request,
     response: Response
@@ -17,4 +17,4 @@ class Calculate {
   }
 }
 
-export default new Calculate();
+export default new CalculateController();

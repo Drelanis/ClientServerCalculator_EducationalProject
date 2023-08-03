@@ -1,4 +1,5 @@
 import ConfigType from '../types/config.js';
+import { Request, Response } from 'express'; // Import Request and Response from Express
 
 interface IOperations {
   [key: string]: IBinaryOperation | IUnaryOperations;
@@ -22,4 +23,11 @@ interface IConfig {
   get(): Partial<ConfigType>;
 }
 
-export { IOperations, IBinaryOperation, IUnaryOperations, IConfig };
+interface IRouters {
+  method: string;
+  path: string;
+  middlewares: any[];
+  action: (request: Request, response: Response) => void;
+}
+
+export { IOperations, IBinaryOperation, IUnaryOperations, IConfig, IRouters };

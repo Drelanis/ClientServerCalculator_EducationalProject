@@ -1,4 +1,4 @@
-import Calculate from '../controllers/Calculate/Calculate.js';
+import CalculateController from '../controllers/Calculate/Calculate.js';
 import {
   checkValidateExpression,
   mainValidateExpression,
@@ -6,39 +6,35 @@ import {
 import validateUnaryExpression from '../service/calculator/errors/middlewares/validateUnaryExpression.js';
 import validateNumbers from '../service/calculator/errors/middlewares/validateNumbers.js';
 import validateMainOperators from '../service/calculator/errors/middlewares/validateMainOperators.js';
-import RouteCreator from './routeCreator/RouteCreator.js';
 import ConfigController from '../controllers/Config/ConfigController.js';
-import routes from './config/routes.js';
-import methods from './config/methods.js';
 import HistoryController from '../controllers/History/HistoryController.js';
+import { IRouters } from '../config/interfaces/calculatorInterfaces.js';
 
-const routers = {
-  config: {
-    GET: RouteCreator.create(
-      `${routes.config}`,
-      `${methods.get}`,
-      ConfigController.get
-    ),
+const routers: IRouters[] = [
+  {
+    method: 'GET',
+    path: '/config',
+    middlewares: [],
+    action: ConfigController.get,
   },
-  calculate: {
-    POST: RouteCreator.create(
-      `${routes.calculate}`,
-      `${methods.post}`,
+  {
+    method: 'POST',
+    path: '/calculate',
+    middlewares: [
       mainValidateExpression as any,
       checkValidateExpression,
       validateUnaryExpression,
       validateNumbers,
       validateMainOperators,
-      Calculate.calculateExression
-    ),
+    ],
+    action: CalculateController.calculateExression,
   },
-  history: {
-    GET: RouteCreator.create(
-      routes.history,
-      methods.get,
-      HistoryController.get
-    ),
+  {
+    method: 'GET',
+    path: '/history',
+    middlewares: [],
+    action: HistoryController.get,
   },
-};
+];
 
 export default routers;

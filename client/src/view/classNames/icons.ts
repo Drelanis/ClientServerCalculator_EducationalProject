@@ -6,6 +6,7 @@ enum iconsClassNames {
   darkThemeIcon = 'fa-moon',
   errorIcon = 'fa-triangle-exclamation',
   equalIcon = 'fa-equals',
+  xmark = 'fa-circle-xmark',
 }
 
 export default iconsClassNames;

@@ -14,8 +14,9 @@ enum optionsClassNames {
 enum historyField {
   root = 'calculator__history',
   historyItem = 'calculator__history_item',
-  historyItemExpression = 'calculator__history_item-expression',
-  historyItemResult = 'calculator__history_item-result',
+  historyItemContainer = 'calculator__history_item-container',
+  historyItemExpression = 'calculator__history_item-container-expression',
+  historyItemResult = 'calculator__history_item-container-result',
 }
 
 enum inputClassNames {
@@ -56,6 +57,10 @@ enum spinnerClassNames {
   root = 'spinner',
 }
 
+enum title {
+  root = 'calculator__history_title',
+}
+
 export {
   extraClassNames,
   calculator,
@@ -67,4 +72,5 @@ export {
   historyField,
   extraControlButtons,
   spinnerClassNames,
+  title,
 };

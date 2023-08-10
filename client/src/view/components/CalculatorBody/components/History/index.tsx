@@ -8,12 +8,11 @@ import { IHistoryItem } from '../../../../../interfaces/calculatorInterfaces';
 import HistoryList from './components/HistoryList';
 
 interface IHistoryProps {
-  action: (expression: string, result: string) => void;
+  input: (expression: string, result: string) => void;
 }
 
-const History: FC<IHistoryProps> = ({ action }) => {
+const History: FC<IHistoryProps> = ({ input }) => {
   const [isHistory, setHistory] = useState([] as IHistoryItem[]);
-
   const [fetchHistory, historyLoading, historyError] = useFetching(async () => {
     const response = await CalculatorApi.getHistory();
     setHistory([...isHistory, ...response]);
@@ -23,13 +22,27 @@ const History: FC<IHistoryProps> = ({ action }) => {
     fetchHistory();
   }, []);
 
+  const removeHistoryItem = (
+    event: React.MouseEvent<HTMLLIElement, MouseEvent>,
+    historyItem: IHistoryItem
+  ) => {
+    event.stopPropagation();
+    setHistory(isHistory.filter((element) => element.id !== historyItem.id));
+  };
+
   return (
     <div className={historyField.root}>
       {historyLoading && (
         <Loader style={{ display: 'flex', marginTop: '170px' }} />
       )}
       {historyError && <Error message={historyError} />}
-      {<HistoryList elements={isHistory} action={action} />}
+      {
+        <HistoryList
+          elements={isHistory}
+          input={input}
+          remove={removeHistoryItem}
+        />
+      }
     </div>
   );
 };

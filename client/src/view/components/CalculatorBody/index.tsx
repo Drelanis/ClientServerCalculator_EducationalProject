@@ -42,7 +42,7 @@ const CalculatorBody: FC = () => {
           allClean={allClean}
           enterButtonValue={enterButtonValue}
         />
-        {isHistory && <History action={inputHistoryItem} />}
+        {isHistory && <History input={inputHistoryItem} />}
       </div>
     </ConfigContextProvider>
   );

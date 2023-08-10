@@ -33,7 +33,19 @@ const routers: IRouters[] = [
     method: 'GET',
     path: '/history',
     middlewares: [],
-    action: HistoryController.get,
+    action: HistoryController.getAll,
+  },
+  // {
+  //   method: 'POST',
+  //   path: '/history',
+  //   middlewares: [],
+  //   action: HistoryController.create,
+  // },
+  {
+    method: 'DELETE',
+    path: '/history/:id',
+    middlewares: [],
+    action: HistoryController.delete,
   },
 ];
 

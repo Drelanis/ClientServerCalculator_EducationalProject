@@ -11,10 +11,10 @@ const HistoryItem: FC<IHistoryItemProps> = ({ historyElement, action }) => {
   return (
     <div
       className={historyField.historyItem}
-      onClick={() => action(historyElement.exression, historyElement.result)}
+      onClick={() => action(historyElement.expression, historyElement.result)}
     >
       <span className={historyField.historyItemExpression}>
-        {historyElement.exression}
+        {historyElement.expression}
       </span>
       <span className={historyField.historyItemResult}>
         = {historyElement.result}

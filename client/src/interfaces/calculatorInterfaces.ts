@@ -30,7 +30,7 @@ interface IConfigContext {
 
 interface IHistoryItem {
   id: number;
-  exression: string;
+  expression: string;
   result: string;
 }
 

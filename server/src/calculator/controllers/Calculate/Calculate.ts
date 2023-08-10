@@ -1,6 +1,7 @@
 import { Request, Response } from 'express';
 import calculate from '../../service/calculator/calculate/calculate.js';
 import calculateResponse from '../../entities/calculateResponse/calculateResponse.js';
+import HistoryController from '../History/HistoryController.js';
 
 class CalculateController {
   public async calculateExression(
@@ -8,9 +9,10 @@ class CalculateController {
     response: Response
   ): Promise<void> {
     try {
-      response.json(
-        calculateResponse(true, '', `${calculate(request.body.expression)}`)
-      );
+      const expression = request.body.expression;
+      const result = calculate(expression).toString();
+      await HistoryController.create(expression, Number(result));
+      response.json(calculateResponse(true, '', result));
     } catch (error) {
       response.json(calculateResponse(false, error.message, '0'));
     }

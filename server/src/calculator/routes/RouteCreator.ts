@@ -19,6 +19,9 @@ class RouteCreator {
         case 'POST':
           route.post(router.path, ...router.middlewares, router.action);
           break;
+        case 'DELETE':
+          route.delete(router.path, ...router.middlewares, router.action);
+          break;
         default:
           throw new Error(`Unsupported HTTP method: ${router.method}`);
       }

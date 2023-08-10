@@ -1,7 +1,6 @@
 import express, { Express } from 'express';
 import cors from 'cors';
 import RouteCreator from './calculator/routes/RouteCreator.js';
-import routers from './calculator/routes/routers.js';
 
 const app: Express = express();
 

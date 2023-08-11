@@ -1,0 +1,10 @@
+version: '3.5'
+
+services:
+  calculator:
+    container_name: calculator
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_PASSWORD=5872424
+    image: postgres:15.3-alpine

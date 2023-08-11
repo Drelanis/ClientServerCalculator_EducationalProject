@@ -1,25 +1,22 @@
 import { Response, Request } from 'express';
-import { pool } from '../../../sql/execute-sql.js';
+import knexConfig from '../../../config/knexFile.js';
 
 class HistoryController {
   public async getAll(
     request: Request,
     response: Response
   ): Promise<Response<any, Record<string, any>>> {
-    const allHistories = await pool.query('SELECT * FROM calculator_history');
-    return response.json(allHistories.rows);
+    const allHistories = await knexConfig.select().from('calculator_history');
+    return response.json(allHistories);
   }
 
   public async create(expression: string, result: number): Promise<void> {
-    await pool.query(
-      'INSERT INTO calculator_history (expression, result) VALUES ($1, $2)',
-      [expression, result]
-    );
+    await knexConfig('calculator_history').insert({ expression, result });
   }
 
   public async delete(request: Request, response: Response) {
     const id = request.params.id;
-    await pool.query('DELETE FROM calculator_history WHERE id = $1', [id]);
+    await knexConfig('calculator_history').where('id', id).del();
     response.status(204).send();
   }
 }

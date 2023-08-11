@@ -22,6 +22,13 @@ class MainApi {
     });
     return response.json() as Promise<T>;
   }
+
+  protected async delete(url: string): Promise<void> {
+    await fetch(`${this.baseUrl}${url}`, {
+      method: 'DELETE',
+      headers: this.baseHeader,
+    });
+  }
 }
 
 export default MainApi;

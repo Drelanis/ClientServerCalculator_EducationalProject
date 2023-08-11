@@ -22,27 +22,26 @@ const History: FC<IHistoryProps> = ({ input }) => {
     fetchHistory();
   }, []);
 
-  const removeHistoryItem = (
+  const removeHistoryItem = async (
     event: React.MouseEvent<HTMLLIElement, MouseEvent>,
     historyItem: IHistoryItem
   ) => {
     event.stopPropagation();
+    await CalculatorApi.removeHistoryItem(historyItem.id);
     setHistory(isHistory.filter((element) => element.id !== historyItem.id));
   };
 
   return (
     <div className={historyField.root}>
-      {historyLoading && (
-        <Loader style={{ display: 'flex', marginTop: '170px' }} />
-      )}
+      {historyLoading && <Loader style={{ margin: '160px' }} />}
       {historyError && <Error message={historyError} />}
-      {
+      {!historyLoading && (
         <HistoryList
           elements={isHistory}
           input={input}
           remove={removeHistoryItem}
         />
-      }
+      )}
     </div>
   );
 };

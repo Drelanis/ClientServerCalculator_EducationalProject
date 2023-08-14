@@ -26,8 +26,8 @@ class CalculatorApi extends MainApi {
     return await this.get<IHistoryItem[]>(`${calculateRoutes.history}`);
   }
 
-  public async removeHistoryItem(id: number) {
-    await this.delete(`${calculateRoutes.history}/${id}`);
+  public async removeHistoryItem(_id: number | string) {
+    await this.delete(`${calculateRoutes.history}/${_id}`);
   }
 }
 

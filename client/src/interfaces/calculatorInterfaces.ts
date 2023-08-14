@@ -29,7 +29,7 @@ interface IConfigContext {
 }
 
 interface IHistoryItem {
-  id: number;
+  _id: number | string;
   expression: string;
   result: string;
 }

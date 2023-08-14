@@ -15,7 +15,7 @@ const History: FC<IHistoryProps> = ({ input }) => {
   const [isHistory, setHistory] = useState([] as IHistoryItem[]);
   const [fetchHistory, historyLoading, historyError] = useFetching(async () => {
     const response = await CalculatorApi.getHistory();
-    setHistory([...isHistory, ...response]);
+    setHistory([...isHistory, ...response].flat());
   }) as [() => Promise<void>, boolean, string];
 
   useEffect(() => {
@@ -27,8 +27,8 @@ const History: FC<IHistoryProps> = ({ input }) => {
     historyItem: IHistoryItem
   ) => {
     event.stopPropagation();
-    await CalculatorApi.removeHistoryItem(historyItem.id);
-    setHistory(isHistory.filter((element) => element.id !== historyItem.id));
+    await CalculatorApi.removeHistoryItem(historyItem._id);
+    setHistory(isHistory.filter((element) => element._id !== historyItem._id));
   };
 
   return (

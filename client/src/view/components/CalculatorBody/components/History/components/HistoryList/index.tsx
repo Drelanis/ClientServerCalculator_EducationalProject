@@ -23,7 +23,7 @@ const HistoryList: FC<IHistoryListProps> = ({ elements, input, remove }) => {
       <TransitionGroup>
         {elements.map((element) => (
           <CSSTransition
-            key={element.id}
+            key={element._id}
             timeout={500}
             classNames="history-item"
           >

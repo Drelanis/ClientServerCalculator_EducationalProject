@@ -24,9 +24,9 @@ const calculatorHistorySchema = new mongoose.Schema(
   }
 );
 
-const CalculatorHistory = mongoose.model(
+const MongooseModel = mongoose.model(
   'calculator_history',
   calculatorHistorySchema
 );
 
-export default CalculatorHistory;
+export default MongooseModel;

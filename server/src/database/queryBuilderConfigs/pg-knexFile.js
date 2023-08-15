@@ -1,6 +1,6 @@
 import knex from 'knex';
 
-const knexConfig = knex({
+const knexModel = knex({
   client: 'pg',
   connection: {
     host: 'localhost',
@@ -11,4 +11,4 @@ const knexConfig = knex({
   },
 });
 
-export default knexConfig;
+export default knexModel;

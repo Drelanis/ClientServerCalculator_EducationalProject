@@ -1,33 +1,25 @@
 import { Response, Request } from 'express';
-import knexConfig from '../../../database/pg-knexFile.js';
-import CalculatorHistory from '../../../database/mdb-mongooseFile.js';
+import Database from '../../../utils/DatabaseFactory.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 class HistoryController {
   public async getAll(
     request: Request,
     response: Response
   ): Promise<Response<any, Record<string, any>>> {
-    const allHistories = await knexConfig.select().from('calculator_history');
-    // const allHistories = [];
-    // await CalculatorHistory.find().then((historyItems) => {
-    //   allHistories.push(historyItems);
-    // });
+    const allHistories = [];
+    await Database.list().then((histories) => allHistories.push(histories));
     return response.json(allHistories);
   }
 
   public async create(expression: string, result: number): Promise<void> {
-    await knexConfig('calculator_history').insert({ expression, result });
-    // CalculatorHistory({
-    //   calculation_date: new Date(),
-    //   expression,
-    //   result,
-    // }).save();
+    await Database.create(expression, result);
   }
 
   public async delete(request: Request, response: Response) {
     const id = request.params.id;
-    await knexConfig('calculator_history').where('_id', id).del();
-    // await CalculatorHistory.deleteOne({ _id: id });
+    await Database.delete(id);
     response.status(204).send();
   }
 }

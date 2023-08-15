@@ -1,10 +1,19 @@
 version: '3.5'
 
 services:
-  calculator:
-    container_name: calculator
+  postgres:
+    container_name: postgres
     ports:
       - '5432:5432'
     environment:
       - POSTGRES_PASSWORD=5872424
     image: postgres:15.3-alpine
+
+  mongodb:
+    container_name: mongodb
+    ports:
+      - '27017:27017'
+    image: 'mongo:4.2.16-bionic'
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: DenysBadaka
+      MONGO_INITDB_ROOT_PASSWORD: 5872424

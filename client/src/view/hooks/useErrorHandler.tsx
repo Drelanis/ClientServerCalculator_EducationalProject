@@ -3,6 +3,7 @@ import Model from '../../model/Model';
 
 const useErrorHandler = () => {
   const [error, setError] = useState<string>('');
+
   useEffect(() => {
     Model.addSubscribe('renderError', showError);
   }, []);

@@ -25,7 +25,6 @@ const Options: FC<IOptionsProps> = ({
   isHistory,
 }) => {
   const { config } = useContext(CalculatorConfigContext);
-
   const setTheme = () => toggleTheme(!isDarkTheme);
   const setOperations = () => {
     toggleOperations(!isExtraOperation);

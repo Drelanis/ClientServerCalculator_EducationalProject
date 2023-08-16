@@ -1,9 +1,18 @@
-import AbstractDatabase from './AbstractDatabase.js';
+import AbstractDatabase, { IHistoryItem } from './AbstractDatabase.js';
 import knexModel from './queryBuilderConfigs/pg-knexFile.js';
 
-class PostgresDB<T> extends AbstractDatabase {
-  public async create(expression: string, result: number): Promise<void> {
-    await knexModel('calculator_history').insert({ expression, result });
+class PostgresDB extends AbstractDatabase {
+  public async create(
+    expression: string,
+    result: number
+  ): Promise<IHistoryItem> {
+    const historyItem: IHistoryItem = await knexModel(
+      'calculator_history'
+    ).insert({
+      expression,
+      result,
+    });
+    return historyItem;
   }
 
   public async delete(id: string | number): Promise<void> {

@@ -34,8 +34,8 @@ const CalculatorBody: FC = () => {
           toggleHistory={setHistory}
         />
         <ExpressionInput inputRef={inputRef} />
-        {error && <Error message={`${error}`} />}
         <ResultOutput result={result} isLoad={isResultLoading} />
+        {error && <Error message={`${error}`} />}
         <Controls
           isExtraOperation={isExtraOperation}
           calculate={calculate}

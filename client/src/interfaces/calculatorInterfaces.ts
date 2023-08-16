@@ -1,44 +1,35 @@
 import ConfigType from '../types/config.js';
 
-interface IOperations {
+export interface IOperations {
   [key: string]: IBinaryOperation | IUnaryOperations;
 }
 
-interface IMathOperation {
+export interface IMathOperation {
   content: string;
   customAction?: boolean;
 }
 
-interface IBinaryOperation extends IMathOperation {
+export interface IBinaryOperation extends IMathOperation {
   precedence: number;
   operation: (firstOperand: number, secondOperand: number) => number;
 }
 
-interface IUnaryOperations extends IMathOperation {
+export interface IUnaryOperations extends IMathOperation {
   [key: string]: ((number: number) => number) | string | boolean | undefined;
 }
 
-interface IConfig {
+export interface IConfig {
   get(): Partial<ConfigType>;
 }
 
-interface IConfigContext {
+export interface IConfigContext {
   config: ConfigType;
   configLoading: boolean;
   configError: string;
 }
 
-interface IHistoryItem {
+export interface IHistoryItem {
   _id: number | string;
   expression: string;
   result: string;
 }
-
-export type {
-  IOperations,
-  IBinaryOperation,
-  IUnaryOperations,
-  IConfig,
-  IConfigContext,
-  IHistoryItem,
-};

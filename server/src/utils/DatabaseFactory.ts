@@ -1,4 +1,5 @@
 import MongoDB from '../database/MongoDB.js';
+import PostgresDB from '../database/PostgreSQL.js';
 import PostgresDatabase from '../database/PostgreSQL.js';
 import dotenv from 'dotenv';
 dotenv.config();
@@ -9,7 +10,13 @@ enum DatabaseType {
 }
 
 class Database {
-  public create(type: DatabaseType) {
+  private instance: PostgresDB | MongoDB;
+
+  constructor() {
+    this.instance = this.create(process.env.DATABASE_TYPE as DatabaseType);
+  }
+
+  private create(type: DatabaseType): PostgresDB | MongoDB {
     switch (type) {
       case DatabaseType.POSTGRES:
         return new PostgresDatabase();
@@ -19,6 +26,10 @@ class Database {
         throw new Error(`Unsupported database type: ${type}`);
     }
   }
+
+  public query() {
+    return this.instance;
+  }
 }
 
-export default new Database().create(process.env.DATABASE_TYPE as DatabaseType);
+export default new Database();

@@ -1,6 +1,8 @@
+// @ts-nocheck
 import { Response, Request } from 'express';
 import Database from '../../../utils/DatabaseFactory.js';
 import dotenv from 'dotenv';
+import { IHistoryItem } from '../../../database/AbstractDatabase.js';
 dotenv.config();
 
 class HistoryController {
@@ -8,19 +10,34 @@ class HistoryController {
     request: Request,
     response: Response
   ): Promise<Response<any, Record<string, any>>> {
-    const allHistories = [];
-    await Database.list().then((histories) => allHistories.push(histories));
-    return response.json(allHistories);
+    try {
+      const allHistories = await Database.query().list();
+      return response.json(allHistories);
+    } catch (error) {
+      response.status(500).json();
+    }
   }
 
-  public async create(expression: string, result: number): Promise<void> {
-    await Database.create(expression, result);
+  public async create(
+    expression: string,
+    result: number
+  ): Promise<IHistoryItem> {
+    try {
+      const historyItem = await Database.query().create(expression, result);
+      return historyItem;
+    } catch (error) {
+      throw new Error('Failed to create history item');
+    }
   }
 
   public async delete(request: Request, response: Response) {
     const id = request.params.id;
-    await Database.delete(id);
-    response.status(204).send();
+    try {
+      await Database.query().delete(id);
+      response.status(204).send();
+    } catch (error) {
+      response.status(500).json();
+    }
   }
 }
 

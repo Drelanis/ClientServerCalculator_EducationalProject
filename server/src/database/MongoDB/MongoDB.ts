@@ -1,5 +1,5 @@
-import AbstractDatabase, { IHistoryItem } from './AbstractDatabase.js';
-import MongooseModel from './queryBuilderConfigs/mdb-mongooseFile.js';
+import AbstractDatabase, { IHistoryItem } from '../AbstractDatabase.js';
+import MongooseModel from './config/model.js';
 
 class MongoDB extends AbstractDatabase {
   public async create(

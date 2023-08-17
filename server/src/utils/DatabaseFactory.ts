@@ -1,6 +1,7 @@
-import MongoDB from '../database/MongoDB.js';
-import PostgresDB from '../database/PostgreSQL.js';
-import PostgresDatabase from '../database/PostgreSQL.js';
+import MongoDB from '../database/MongoDB/MongoDB.js';
+import PostgresDB from '../database/PostgreSQL/PostgreSQL.js';
+import PostgresDatabase from '../database/PostgreSQL/PostgreSQL.js';
+import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -21,6 +22,8 @@ class Database {
       case DatabaseType.POSTGRES:
         return new PostgresDatabase();
       case DatabaseType.MONGODB:
+        const mongoDBUrl = process.env.MONGODB_URL;
+        mongoose.connect(mongoDBUrl);
         return new MongoDB();
       default:
         throw new Error(`Unsupported database type: ${type}`);

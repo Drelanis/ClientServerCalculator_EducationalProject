@@ -1,8 +1,6 @@
 import mongoose from 'mongoose';
-
-const mongoDBUrl =
-  'mongodb+srv://DenysBadaka:5872424@cluster0.z3r4qc1.mongodb.net/test?retryWrites=true&w=majority';
-mongoose.connect(mongoDBUrl);
+import dotenv from 'dotenv';
+dotenv.config();
 
 const calculatorHistorySchema = new mongoose.Schema(
   {
@@ -24,9 +22,4 @@ const calculatorHistorySchema = new mongoose.Schema(
   }
 );
 
-const MongooseModel = mongoose.model(
-  'calculator_history',
-  calculatorHistorySchema
-);
-
-export default MongooseModel;
+export default calculatorHistorySchema;

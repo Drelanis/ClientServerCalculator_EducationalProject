@@ -1,5 +1,7 @@
-import AbstractDatabase, { IHistoryItem } from './AbstractDatabase.js';
-import knexModel from './queryBuilderConfigs/pg-knexFile.js';
+import AbstractDatabase, { IHistoryItem } from '../AbstractDatabase.js';
+import knexModel from './config/pg-knexFile.js';
+import dotenv from 'dotenv';
+dotenv.config();
 
 class PostgresDB extends AbstractDatabase {
   public async create(
@@ -7,7 +9,7 @@ class PostgresDB extends AbstractDatabase {
     result: number
   ): Promise<IHistoryItem> {
     const historyItem: IHistoryItem = await knexModel(
-      'calculator_history'
+      process.env.POSTGRESQL_HISTORY_TABLE
     ).insert({
       expression,
       result,
@@ -16,11 +18,15 @@ class PostgresDB extends AbstractDatabase {
   }
 
   public async delete(id: string | number): Promise<void> {
-    await knexModel('calculator_history').where('_id', id).del();
+    await knexModel(process.env.POSTGRESQL_HISTORY_TABLE)
+      .where('_id', id)
+      .del();
   }
 
   public async list(): Promise<[]> {
-    const allHistories = await knexModel.select().from('calculator_history');
+    const allHistories = await knexModel
+      .select()
+      .from(process.env.POSTGRESQL_HISTORY_TABLE);
     return allHistories;
   }
 }

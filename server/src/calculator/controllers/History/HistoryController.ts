@@ -1,4 +1,3 @@
-// @ts-nocheck
 import { Response, Request } from 'express';
 import Database from '../../../utils/DatabaseFactory.js';
 import dotenv from 'dotenv';
@@ -11,10 +10,18 @@ class HistoryController {
     response: Response
   ): Promise<Response<any, Record<string, any>>> {
     try {
+      const page = parseInt(request.query.page as string) || 1;
+      const limit = parseInt(request.query.limit as string) || 10;
+      const startIndex = (page - 1) * limit;
+      const endIndex = page * limit;
       const allHistories = await Database.query().list();
-      return response.json(allHistories);
+      const paginatedHistories = allHistories.slice(startIndex, endIndex);
+      return response.json({
+        histories: paginatedHistories,
+        totalCount: allHistories.length,
+      });
     } catch (error) {
-      response.status(500).json();
+      return response.status(500).json();
     }
   }
 

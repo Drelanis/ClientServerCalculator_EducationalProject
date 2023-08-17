@@ -35,12 +35,6 @@ const routers: IRouters[] = [
     middlewares: [],
     action: HistoryController.getAll,
   },
-  // {
-  //   method: 'POST',
-  //   path: '/history',
-  //   middlewares: [],
-  //   action: HistoryController.create,
-  // },
   {
     method: 'DELETE',
     path: '/history/:id',

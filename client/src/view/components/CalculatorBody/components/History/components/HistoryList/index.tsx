@@ -1,4 +1,4 @@
-import { FC } from 'react';
+import { FC, useRef } from 'react';
 import { IHistoryItem } from '../../../../../../../interfaces/calculatorInterfaces';
 import HistoryItem from './components/HistoryItem';
 import { title } from '../../../../../../classNames/classNamesOfElements';

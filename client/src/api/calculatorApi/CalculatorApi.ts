@@ -4,6 +4,11 @@ import config from '../../types/config';
 import MainApi from '../baseApi/MainApi';
 import calculateRoutes from '../routes/routes';
 
+interface IHistoryResponse {
+  histories: IHistoryItem[];
+  totalCount: number;
+}
+
 class CalculatorApi extends MainApi {
   constructor() {
     super(calculateRoutes.main);
@@ -22,8 +27,10 @@ class CalculatorApi extends MainApi {
     return await this.get<config>(`${calculateRoutes.config}`);
   }
 
-  public async getHistory() {
-    return await this.get<IHistoryItem[]>(`${calculateRoutes.history}`);
+  public async getHistory(page?: number, limit?: number) {
+    return await this.get<IHistoryResponse>(
+      `${calculateRoutes.history}?page=${page}&limit=${limit}`
+    );
   }
 
   public async removeHistoryItem(_id: number | string) {

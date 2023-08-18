@@ -1,4 +1,4 @@
-import { FC, useRef } from 'react';
+import { FC } from 'react';
 import { IHistoryItem } from '../../../../../../../interfaces/calculatorInterfaces';
 import HistoryItem from './components/HistoryItem';
 import { title } from '../../../../../../classNames/classNamesOfElements';
@@ -21,19 +21,21 @@ const HistoryList: FC<IHistoryListProps> = ({ elements, input, remove }) => {
   return (
     <>
       <TransitionGroup>
-        {elements.map((element) => (
-          <CSSTransition
-            key={element._id}
-            timeout={500}
-            classNames="history-item"
-          >
-            <HistoryItem
-              historyElement={element}
-              action={input}
-              remove={remove}
-            />
-          </CSSTransition>
-        ))}
+        {elements.map((element) => {
+          return (
+            <CSSTransition
+              key={element._id}
+              timeout={500}
+              classNames="history-item"
+            >
+              <HistoryItem
+                historyElement={element}
+                action={input}
+                remove={remove}
+              />
+            </CSSTransition>
+          );
+        })}
       </TransitionGroup>
     </>
   );

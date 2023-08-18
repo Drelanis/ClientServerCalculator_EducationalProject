@@ -6,7 +6,7 @@ export interface IHistoryItem {
 
 abstract class AbstractDatabase<T> {
   abstract create(expression: string, result: number): Promise<T>;
-  abstract delete(id: string | number): Promise<void>;
+  abstract delete(id: string): Promise<void>;
   abstract list(): Promise<T[]>;
 }
 

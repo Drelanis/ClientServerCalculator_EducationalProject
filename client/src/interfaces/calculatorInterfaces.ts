@@ -32,4 +32,5 @@ export interface IHistoryItem {
   _id: number | string;
   expression: string;
   result: string;
+  calculation_date: Date;
 }

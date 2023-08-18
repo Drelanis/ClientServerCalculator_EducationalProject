@@ -14,7 +14,7 @@ class MongoDB extends AbstractDatabase<IHistoryItem> {
     return historyItem;
   }
 
-  public async delete(id: string | number): Promise<void> {
+  public async delete(id: string): Promise<void> {
     await MongooseModel.deleteOne({ _id: id });
   }
 

@@ -17,7 +17,7 @@ class PostgresDB extends AbstractDatabase<IHistoryItem> {
     return historyItem;
   }
 
-  public async delete(id: string | number): Promise<void> {
+  public async delete(id: string): Promise<void> {
     await knexModel(process.env.POSTGRESQL_HISTORY_TABLE)
       .where('_id', id)
       .del();

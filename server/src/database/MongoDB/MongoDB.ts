@@ -1,7 +1,7 @@
 import AbstractDatabase, { IHistoryItem } from '../AbstractDatabase.js';
 import MongooseModel from './config/model.js';
 
-class MongoDB extends AbstractDatabase {
+class MongoDB extends AbstractDatabase<IHistoryItem> {
   public async create(
     expression: string,
     result: number
@@ -18,7 +18,7 @@ class MongoDB extends AbstractDatabase {
     await MongooseModel.deleteOne({ _id: id });
   }
 
-  public list(): Promise<[]> {
+  public list(): Promise<IHistoryItem[]> {
     return MongooseModel.find();
   }
 }

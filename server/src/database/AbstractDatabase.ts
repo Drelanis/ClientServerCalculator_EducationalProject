@@ -4,10 +4,10 @@ export interface IHistoryItem {
   result: number;
 }
 
-abstract class AbstractDatabase {
-  abstract create(expression: string, result: number): Promise<IHistoryItem>;
+abstract class AbstractDatabase<T> {
+  abstract create(expression: string, result: number): Promise<T>;
   abstract delete(id: string | number): Promise<void>;
-  abstract list(): Promise<[]>;
+  abstract list(): Promise<T[]>;
 }
 
 export default AbstractDatabase;

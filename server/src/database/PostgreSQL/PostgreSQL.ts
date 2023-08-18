@@ -3,7 +3,7 @@ import knexModel from './config/pg-knexFile.js';
 import dotenv from 'dotenv';
 dotenv.config();
 
-class PostgresDB extends AbstractDatabase {
+class PostgresDB extends AbstractDatabase<IHistoryItem> {
   public async create(
     expression: string,
     result: number
@@ -23,7 +23,7 @@ class PostgresDB extends AbstractDatabase {
       .del();
   }
 
-  public async list(): Promise<[]> {
+  public async list(): Promise<IHistoryItem[]> {
     const allHistories = await knexModel
       .select()
       .from(process.env.POSTGRESQL_HISTORY_TABLE);

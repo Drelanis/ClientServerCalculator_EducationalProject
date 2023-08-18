@@ -18,8 +18,10 @@ class MongoDB extends AbstractDatabase<IHistoryItem> {
     await MongooseModel.deleteOne({ _id: id });
   }
 
-  public list(): Promise<IHistoryItem[]> {
-    return MongooseModel.find();
+  public list(sort?: string, filters?: any): Promise<IHistoryItem[]> {
+    let query = MongooseModel.find(filters);
+    if (sort === 'desc') query = query.sort({ calculation_date: -1 });
+    return query.exec();
   }
 }
 

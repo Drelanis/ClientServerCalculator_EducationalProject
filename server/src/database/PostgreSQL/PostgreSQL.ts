@@ -23,11 +23,15 @@ class PostgresDB extends AbstractDatabase<IHistoryItem> {
       .del();
   }
 
-  public async list(): Promise<IHistoryItem[]> {
-    const allHistories = await knexModel
-      .select()
-      .from(process.env.POSTGRESQL_HISTORY_TABLE);
-    return allHistories;
+  async list(sort?: string, filters: any = {}): Promise<IHistoryItem[]> {
+    let query = knexModel.select().from(process.env.POSTGRESQL_HISTORY_TABLE);
+
+    if (filters.expression)
+      query = query.where('expression', filters.expression);
+    if (filters.result) query = query.where('result', filters.result);
+    if (sort === 'desc') query = query.orderBy('calculation_date', 'desc');
+
+    return await query;
   }
 }
 

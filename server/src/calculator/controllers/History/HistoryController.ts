@@ -10,11 +10,19 @@ class HistoryController {
     response: Response
   ): Promise<Response<any, Record<string, any>>> {
     try {
-      const page = parseInt(request.query.page as string) || 1;
-      const limit = parseInt(request.query.limit as string) || 10;
-      const startIndex = (page - 1) * limit;
-      const endIndex = page * limit;
-      const allHistories = await Database.query().list();
+      const {
+        page = 1,
+        limit = 10,
+        sort = 'asc',
+        expression,
+        result,
+      } = request.query;
+      const filters: Partial<any> = {};
+      if (expression) filters.expression = expression;
+      if (result) filters.result = Number(result);
+      const startIndex = (Number(page) - 1) * Number(limit);
+      const endIndex = Number(page) * Number(limit);
+      const allHistories = await Database.query().list(sort as string, filters);
       const paginatedHistories = allHistories.slice(startIndex, endIndex);
       return response.json({
         histories: paginatedHistories,

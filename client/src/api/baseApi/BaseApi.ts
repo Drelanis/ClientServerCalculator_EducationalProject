@@ -1,4 +1,4 @@
-class MainApi {
+class BaseApi {
   protected baseUrl: string;
   protected baseHeader: { [key: string]: string };
 
@@ -11,7 +11,7 @@ class MainApi {
 
   protected async get<T>(url: string): Promise<T> {
     const response = await fetch(`${this.baseUrl}${url}`);
-    return response.json() as Promise<T>;
+    return response.json();
   }
 
   protected async post<T>(url: string, data: any): Promise<T> {
@@ -20,7 +20,7 @@ class MainApi {
       headers: this.baseHeader,
       body: JSON.stringify(data),
     });
-    return response.json() as Promise<T>;
+    return response.json();
   }
 
   protected async delete<T>(url: string): Promise<T> {
@@ -28,8 +28,8 @@ class MainApi {
       method: 'DELETE',
       headers: this.baseHeader,
     });
-    return response.json() as Promise<T>;
+    return response.json();
   }
 }
 
-export default MainApi;
+export default BaseApi;

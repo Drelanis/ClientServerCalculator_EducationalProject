@@ -58,7 +58,7 @@ class HistoryController {
     const id = request.params.id;
     try {
       await Database.query().delete(id);
-      return response.status(204).json({ error: false, message: '' });
+      return response.json({ error: false, message: '' });
     } catch (error) {
       return response
         .status(500)

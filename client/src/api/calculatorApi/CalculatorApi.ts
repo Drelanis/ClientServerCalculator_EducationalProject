@@ -1,7 +1,7 @@
 import { IHistoryItem } from '../../interfaces/calculatorInterfaces';
 import CalculationResponse from '../../types/calculationRsponse';
 import config from '../../types/config';
-import MainApi from '../baseApi/MainApi';
+import BaseApi from '../baseApi/BaseApi';
 import calculateRoutes from '../routes/routes';
 
 interface IHistoryResponse {
@@ -11,7 +11,7 @@ interface IHistoryResponse {
   totalCount: number;
 }
 
-class CalculatorApi extends MainApi {
+class CalculatorApi extends BaseApi {
   constructor() {
     super(calculateRoutes.main);
   }
@@ -19,10 +19,9 @@ class CalculatorApi extends MainApi {
   public async getCalculationResult(
     expression: string
   ): Promise<CalculationResponse> {
-    const response = await this.post(`${calculateRoutes.calculate}`, {
+    return await this.post(`${calculateRoutes.calculate}`, {
       expression,
     });
-    return response as Promise<CalculationResponse>;
   }
 
   public async getOperationsConfig() {

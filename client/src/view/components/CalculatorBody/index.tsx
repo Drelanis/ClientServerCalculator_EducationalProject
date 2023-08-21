@@ -35,7 +35,7 @@ const CalculatorBody: FC = () => {
         />
         <ExpressionInput inputRef={inputRef} />
         <ResultOutput result={result} isLoad={isResultLoading} />
-        {error && <Error message={`${error}`} />}
+        <Error message={`${error}`} />
         <Controls
           isExtraOperation={isExtraOperation}
           calculate={calculate}

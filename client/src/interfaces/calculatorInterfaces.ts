@@ -34,3 +34,8 @@ export interface IHistoryItem {
   result: string;
   calculation_date: Date;
 }
+
+export interface IErrorResponse {
+  error: boolean;
+  message: string;
+}

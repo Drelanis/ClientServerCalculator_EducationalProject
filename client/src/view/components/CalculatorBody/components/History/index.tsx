@@ -4,10 +4,14 @@ import CalculatorApi from '../../../../../api/calculatorApi/CalculatorApi';
 import { historyField } from '../../../../classNames/classNamesOfElements';
 import Error from '../../../../common/Error';
 import Loader from '../../../../common/Loader';
-import { IHistoryItem } from '../../../../../interfaces/calculatorInterfaces';
+import {
+  IErrorResponse,
+  IHistoryItem,
+} from '../../../../../interfaces/calculatorInterfaces';
 import HistoryList from './components/HistoryList';
 import useObserver from '../../../../hooks/useObserver';
 import { getPageCount } from '../../../../../utils/pages';
+import { toast } from 'react-toastify';
 
 interface IHistoryProps {
   input: (expression: string, result: string) => void;
@@ -18,10 +22,11 @@ const History: FC<IHistoryProps> = ({ input }) => {
   const lastElement = useRef<HTMLDivElement | null>(null);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(0);
-  const [isHistory, setHistory] = useState([] as IHistoryItem[]);
+  const [isHistory, setHistory] = useState<IHistoryItem[]>([]);
   const [fetchHistory, isHistoryLoading, historyError] = useFetching(
     async () => {
       const response = await CalculatorApi.getHistory(page, limit);
+      if (response.error) return toast.error(response.message);
       setTotalPages(getPageCount(response.totalCount, limit));
       setHistory([...isHistory, ...response.histories].flat());
     }
@@ -40,29 +45,28 @@ const History: FC<IHistoryProps> = ({ input }) => {
     historyItem: IHistoryItem
   ) => {
     event.stopPropagation();
-    await CalculatorApi.removeHistoryItem(historyItem._id);
+    const response = (await CalculatorApi.removeHistoryItem(
+      historyItem._id
+    )) as IErrorResponse;
+    if (response.error) return toast.error(response.message);
     setHistory(isHistory.filter((element) => element._id !== historyItem._id));
   };
 
   return (
     <div className={historyField.root}>
       {isHistoryLoading && <Loader style={{ margin: '160px' }} />}
-      {historyError && <Error message={historyError} />}
-      {
-        <>
-          <HistoryList
-            elements={isHistory}
-            input={input}
-            remove={removeHistoryItem}
-          />
-          <div ref={lastElement} style={{ height: '5px' }}></div>
-          {isHistoryLoading && (
-            <Loader
-              style={{ height: '20px', width: '20px', marginLeft: '200px' }}
-            />
-          )}
-        </>
-      }
+      <Error message={historyError} />
+      <HistoryList
+        elements={isHistory}
+        input={input}
+        remove={removeHistoryItem}
+      />
+      <div ref={lastElement} style={{ height: '5px' }}></div>
+      {isHistoryLoading && (
+        <Loader
+          style={{ height: '20px', width: '20px', marginLeft: '200px' }}
+        />
+      )}
     </div>
   );
 };

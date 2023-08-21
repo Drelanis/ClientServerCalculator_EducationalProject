@@ -5,6 +5,8 @@ import MainApi from '../baseApi/MainApi';
 import calculateRoutes from '../routes/routes';
 
 interface IHistoryResponse {
+  error: boolean;
+  message: string;
   histories: IHistoryItem[];
   totalCount: number;
 }
@@ -34,7 +36,7 @@ class CalculatorApi extends MainApi {
   }
 
   public async removeHistoryItem(_id: number | string) {
-    await this.delete(`${calculateRoutes.history}/${_id}`);
+    return await this.delete(`${calculateRoutes.history}/${_id}`);
   }
 }
 

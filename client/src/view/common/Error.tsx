@@ -8,6 +8,8 @@ type ErrorProps = {
 };
 
 const Error: FC<ErrorProps> = ({ message }) => {
+  if (!message) return null;
+
   return (
     <div className={errorClassNames.container}>
       <div className={errorClassNames.containerForIcon}>

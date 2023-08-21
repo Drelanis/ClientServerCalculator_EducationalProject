@@ -1,7 +1,9 @@
 import { Response, Request } from 'express';
 import Database from '../../../utils/DatabaseFactory.js';
-import dotenv from 'dotenv';
 import { IHistoryItem } from '../../../database/AbstractDatabase.js';
+import buildFilters from '../../../utils/buildFilters.js';
+import calculateIndexes from '../../../utils/calculateIndexes.js';
+import dotenv from 'dotenv';
 dotenv.config();
 
 class HistoryController {
@@ -17,19 +19,26 @@ class HistoryController {
         expression,
         result,
       } = request.query;
-      const filters: Partial<any> = {};
-      if (expression) filters.expression = expression;
-      if (result) filters.result = Number(result);
-      const startIndex = (Number(page) - 1) * Number(limit);
-      const endIndex = Number(page) * Number(limit);
+      const filters = buildFilters(expression as string, result as string);
+      const { startIndex, endIndex } = calculateIndexes(
+        page as string,
+        limit as string
+      );
       const allHistories = await Database.query().list(sort as string, filters);
       const paginatedHistories = allHistories.slice(startIndex, endIndex);
       return response.json({
+        error: false,
+        message: '',
         histories: paginatedHistories,
         totalCount: allHistories.length,
       });
     } catch (error) {
-      return response.status(500).json();
+      return response.status(500).json({
+        error: true,
+        message: 'Database error',
+        histories: [],
+        totalCount: 0,
+      });
     }
   }
 
@@ -49,9 +58,11 @@ class HistoryController {
     const id = request.params.id;
     try {
       await Database.query().delete(id);
-      response.status(204).send();
+      return response.status(204).json({ error: false, message: '' });
     } catch (error) {
-      response.status(500).json();
+      return response
+        .status(500)
+        .json({ error: true, message: 'Database error' });
     }
   }
 }

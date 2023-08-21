@@ -25,7 +25,7 @@ const Controls: FC<IOptionsProps> = ({
     >
       <div className={controlButtonsClassNames.root}>
         {configLoading && <Loader />}
-        {configError && <Error message={configError} />}
+        <Error message={configError} />
         {<ControlButtons isExtraOperation={isExtraOperation} />}
       </div>
     </CalculateContext.Provider>

@@ -1,6 +1,6 @@
-import validationNumbers from '../checks/validationNumbers.js';
+import validationNumbers from '../checks/validationNumbers';
 import { Request, Response } from 'express';
-import getCalculateResponse from '../../../../entities/calculateResponse/calculateResponse.js';
+import getCalculateResponse from '../../../../entities/calculateResponse/calculateResponse';
 
 const validateNumbers = (
   request: Request,

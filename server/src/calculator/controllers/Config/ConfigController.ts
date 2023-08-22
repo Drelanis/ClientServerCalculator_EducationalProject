@@ -1,6 +1,6 @@
-import Config from '../../config/Config.js';
+import Config from '../../config/Config';
 import { Response, Request } from 'express';
-import ConfigType from '../../config/types/config.js';
+import ConfigType from '../../config/types/config';
 
 class ConfigController {
   public async get(

@@ -2,22 +2,22 @@ import {
   extraConstance,
   extraOperationsBinary,
   extraOperationsUnary,
-} from '../extraOperations/extraOperations.js';
+} from '../extraOperations/extraOperations';
 import {
   IBinaryOperation,
   IOperations,
   IUnaryOperations,
-} from '../interfaces/calculatorInterfaces.js';
-import { operations } from '../mainOperations/mainOperations.js';
+} from '../interfaces/calculatorInterfaces';
+import { operations } from '../mainOperations/mainOperations';
 
-const binaryFunctions: Partial<IBinaryOperation> = {};
+const binaryFunctions: Partial<IBinaryOperation | any> = {};
 
 const unaryFunctions: Partial<IUnaryOperations> = {};
 
 const addBinaryFunctions = (
   operations: IOperations,
-  binaryFunctions: Partial<IBinaryOperation>
-) => {
+  binaryFunctions: any
+): void => {
   Object.values(operations).forEach((operation) => {
     if (!operation.operation) return;
     binaryFunctions[operation.content] = {

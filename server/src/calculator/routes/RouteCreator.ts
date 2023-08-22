@@ -1,6 +1,6 @@
 import express, { Router } from 'express';
-import { IRouters } from '../config/interfaces/calculatorInterfaces.js';
-import routers from './routers.js';
+import { IRouters } from '../config/interfaces/calculatorInterfaces';
+import routers from './routers';
 
 class RouteCreator {
   private routes: express.Router[] = [];

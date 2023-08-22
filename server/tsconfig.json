@@ -1,24 +1,16 @@
 {
   "compilerOptions": {
-    // "target": "ES2018",
-    // "lib": ["ES6"],
-    "module": "NodeNext"
-    // "rootDir": "./src",
-    // "resolveJsonModule": true,
-    // "allowJs": true,
-    // "sourceMap": true,
-    // "outDir": "./build",
-    // "removeComments": true,
-    // "esModuleInterop": true,
-    // "forceConsistentCasingInFileNames": true,
-    // "strict": true,
-    // "noImplicitAny": true,
-    // "skipLibCheck": true
+    "target": "ES5",
+    "lib": ["ESNext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "baseUrl": ".",
+    "paths": {}
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules"],
-  "lib": ["esnext"],
-  "ts-node": {
-    "esm": true
-  }
+  "include": ["src"]
 }

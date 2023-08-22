@@ -1,5 +1,5 @@
-import ConfigType from '../types/config.js';
-import { Request, Response } from 'express'; // Import Request and Response from Express
+import ConfigType from '../types/config';
+import { Request, Response } from 'express';
 
 interface IOperations {
   [key: string]: IBinaryOperation | IUnaryOperations;
@@ -16,7 +16,7 @@ interface IBinaryOperation extends IMathOperation {
 }
 
 interface IUnaryOperations extends IMathOperation {
-  [key: string]: ((number: number) => number) | string | boolean;
+  [key: string]: ((number: number) => number) | string | boolean | undefined;
 }
 
 interface IConfig {

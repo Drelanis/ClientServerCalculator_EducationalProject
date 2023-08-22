@@ -1,14 +1,14 @@
-import CalculateController from '../controllers/Calculate/Calculate.js';
+import CalculateController from '../controllers/Calculate/Calculate';
 import {
   checkValidateExpression,
   mainValidateExpression,
-} from '../service/calculator/errors/middlewares/mainValidateExpression.js';
-import validateUnaryExpression from '../service/calculator/errors/middlewares/validateUnaryExpression.js';
-import validateNumbers from '../service/calculator/errors/middlewares/validateNumbers.js';
-import validateMainOperators from '../service/calculator/errors/middlewares/validateMainOperators.js';
-import ConfigController from '../controllers/Config/ConfigController.js';
-import HistoryController from '../controllers/History/HistoryController.js';
-import { IRouters } from '../config/interfaces/calculatorInterfaces.js';
+} from '../service/calculator/errors/middlewares/mainValidateExpression';
+import validateUnaryExpression from '../service/calculator/errors/middlewares/validateUnaryExpression';
+import validateNumbers from '../service/calculator/errors/middlewares/validateNumbers';
+import validateMainOperators from '../service/calculator/errors/middlewares/validateMainOperators';
+import ConfigController from '../controllers/Config/ConfigController';
+import HistoryController from '../controllers/History/HistoryController';
+import { IRouters } from '../config/interfaces/calculatorInterfaces';
 
 const routers: IRouters[] = [
   {

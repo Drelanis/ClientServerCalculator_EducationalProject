@@ -1,15 +1,15 @@
-import { unaryFunctions } from '../../../../config/functions/functions.js';
+import { unaryFunctions } from '../../../../config/functions/functions';
 import {
   constantRegexp,
   createdRegexp,
-} from '../../../../config/regexp/regexp.js';
-import calculateBinaryOperations from '../calculateBinaryOperations/calculateBinaryOperations.js';
+} from '../../../../config/regexp/regexp';
+import calculateBinaryOperations from '../calculateBinaryOperations/calculateBinaryOperations';
 
 const calculateParentheses = (expression: string): string => {
   while (expression.match(constantRegexp.mostNestedParentheses)) {
     const matches = constantRegexp.mostNestedParentheses.exec(expression);
-    const innerExpression = matches[1];
-    if (matches[0].match(constantRegexp.negativeNumberInBrackets)) {
+    const innerExpression = matches![1];
+    if (matches![0].match(constantRegexp.negativeNumberInBrackets)) {
       expression = expression.replace(
         `(${innerExpression})`,
         `[${innerExpression}]`
@@ -22,16 +22,16 @@ const calculateParentheses = (expression: string): string => {
       const innerUnaryExpression = expression.match(
         createdRegexp.isUnaryRegexp
       );
-      const unaryValue = innerUnaryExpression.groups.value.match(
+      const unaryValue = innerUnaryExpression?.groups?.value.match(
         constantRegexp.isDynamicNumber
-      )[0];
-      const unaryAction = innerUnaryExpression.groups.operator;
+      )![0];
+      const unaryAction = innerUnaryExpression?.groups?.operator as string;
       const unaryFunction = unaryFunctions[unaryAction] as (
         number: number
       ) => number;
       const unaryResult = unaryFunction(Number(unaryValue));
       expression = expression.replace(
-        `${innerUnaryExpression[0]}`,
+        `${innerUnaryExpression![0]}`,
         `(${unaryResult})`
       );
     }

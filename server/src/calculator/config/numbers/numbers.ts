@@ -1,4 +1,4 @@
-import { IOperations } from '../interfaces/calculatorInterfaces.js';
+import { IOperations } from '../interfaces/calculatorInterfaces';
 
 const numbers: IOperations = {
   one: { content: '1' },

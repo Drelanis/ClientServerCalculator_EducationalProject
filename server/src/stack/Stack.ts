@@ -1,4 +1,4 @@
-import IStack from './IStack.js';
+import IStack from './IStack';
 
 class Stack<T> implements IStack<T> {
   public stack: T[];

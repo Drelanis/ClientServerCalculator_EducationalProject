@@ -1,4 +1,4 @@
-import calculateResponse from '../../config/types/calculateResponse.js';
+import calculateResponse from '../../config/types/calculateResponse';
 
 const getCalculateResponse: calculateResponse = (
   isError,

@@ -1,9 +1,9 @@
-import { extraConstance } from '../extraOperations/extraOperations.js';
-import { unaryFunctions } from '../functions/functions.js';
+import { extraConstance } from '../extraOperations/extraOperations';
+import { unaryFunctions } from '../functions/functions';
 import {
   IOperations,
   IUnaryOperations,
-} from '../interfaces/calculatorInterfaces.js';
+} from '../interfaces/calculatorInterfaces';
 
 const constantRegexp = {
   isOperator: /[+\-*\/\^%=(),]/,
@@ -18,9 +18,10 @@ const constantRegexp = {
   isLetter: /[a-zA-Z]/,
   invalidCharacter: /^(?!.*[\[\]@#$"'{}№&:;\\|<>,]).*$/,
   checkingNumbersAfterTheParenthesis: /\)(\d+(\.\d+)*)/,
+  minuseValidate: /^-?\d+(\.\d+)?-(?=$)/,
 };
 
-const isConstanse = (constants: IOperations): RegExp => {
+const isConstanse = (constants: IOperations): RegExp | undefined => {
   if (!constants) return;
   let regexpString = '';
   Object.values(constants).forEach((element, index) => {
@@ -35,7 +36,7 @@ const isConstanse = (constants: IOperations): RegExp => {
 
 const unaryOperationsCreaterForRegexp = (
   functions: Partial<IUnaryOperations>
-): string => {
+): string | undefined => {
   if (!functions) return;
   let regexpString = '';
   Object.keys(functions).forEach((element, index) => {

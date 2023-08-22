@@ -1,19 +1,19 @@
-import isObjectEmpty from '../../utils/isObjectEmpty.js';
-import dataSetting from './allowedButtons/allowedButtons.js';
+import isObjectEmpty from '../../utils/isObjectEmpty';
+import dataSetting from './allowedButtons/allowedButtons';
 import {
   extraConstance,
   extraOperationsBinary,
   extraOperationsUnary,
-} from './extraOperations/extraOperations.js';
-import { IConfig } from './interfaces/calculatorInterfaces.js';
+} from './extraOperations/extraOperations';
+import { IConfig } from './interfaces/calculatorInterfaces';
 import {
   allClean,
   equal,
   rightMainOperations,
   topMainOperations,
-} from './mainOperations/mainOperations.js';
-import numbers from './numbers/numbers.js';
-import ConfigType from './types/config.js';
+} from './mainOperations/mainOperations';
+import numbers from './numbers/numbers';
+import ConfigType from './types/config';
 
 class Config implements IConfig {
   private config: Partial<ConfigType> = {};

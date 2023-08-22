@@ -1,6 +1,8 @@
-import { constantRegexp } from '../../../../config/regexp/regexp.js';
+import { constantRegexp } from '../../../../config/regexp/regexp';
 
-const validationMainOperators = (expression: string): boolean =>
-  !constantRegexp.validationMainOperators.test(expression);
+const validationMainOperators = (expression: string): boolean => {
+  if (constantRegexp.minuseValidate.test(expression)) return false;
+  return !constantRegexp.validationMainOperators.test(expression);
+};
 
 export default validationMainOperators;

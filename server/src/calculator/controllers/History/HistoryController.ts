@@ -1,8 +1,8 @@
 import { Response, Request } from 'express';
-import Database from '../../../utils/DatabaseFactory.js';
-import { IHistoryItem } from '../../../database/AbstractDatabase.js';
-import buildFilters from '../../../utils/buildFilters.js';
-import calculateIndexes from '../../../utils/calculateIndexes.js';
+import Database from '../../../utils/DatabaseFactory';
+import { IHistoryItem } from '../../../database/AbstractDatabase';
+import buildFilters from '../../../utils/buildFilters';
+import calculateIndexes from '../../../utils/calculateIndexes';
 import dotenv from 'dotenv';
 dotenv.config();
 

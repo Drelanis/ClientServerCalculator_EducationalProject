@@ -1,12 +1,12 @@
-import AbstractDatabase, { IHistoryItem } from '../AbstractDatabase.js';
-import MongooseModel from './config/model.js';
+import AbstractDatabase, { IHistoryItem } from '../AbstractDatabase';
+import MongooseModel from './config/model';
 
 class MongoDB extends AbstractDatabase<IHistoryItem> {
   public async create(
     expression: string,
     result: number
   ): Promise<IHistoryItem> {
-    const historyItem: IHistoryItem = await MongooseModel({
+    const historyItem: IHistoryItem = await new MongooseModel({
       calculation_date: new Date(),
       expression,
       result,

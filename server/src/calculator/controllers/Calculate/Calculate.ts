@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
-import calculate from '../../service/calculator/calculate/calculate.js';
-import calculateResponse from '../../entities/calculateResponse/calculateResponse.js';
-import HistoryController from '../History/HistoryController.js';
+import calculate from '../../service/calculator/calculate/calculate';
+import calculateResponse from '../../entities/calculateResponse/calculateResponse';
+import HistoryController from '../History/HistoryController';
 
 class CalculateController {
   public async calculateExression(
@@ -13,7 +13,7 @@ class CalculateController {
       const result = calculate(expression).toString();
       await HistoryController.create(expression, Number(result));
       response.json(calculateResponse(true, '', result));
-    } catch (error) {
+    } catch (error: any) {
       response.json(calculateResponse(false, error.message, '0'));
     }
   }

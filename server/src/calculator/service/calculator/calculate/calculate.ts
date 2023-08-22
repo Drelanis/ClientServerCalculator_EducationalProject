@@ -1,6 +1,6 @@
-import calculateBinaryOperations from './calculateBinaryOperations/calculateBinaryOperations.js';
-import calculateParentheses from './calculateParentheses/calculateParentheses.js';
-import findConstants from './findConstants/findConstants.js';
+import calculateBinaryOperations from './calculateBinaryOperations/calculateBinaryOperations';
+import calculateParentheses from './calculateParentheses/calculateParentheses';
+import findConstants from './findConstants/findConstants';
 
 const calculate = (expression: string): number => {
   if (!expression) return 0;

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import getCalculateResponse from '../../../../entities/calculateResponse/calculateResponse.js';
-import validationUnaryExpressions from '../checks/validationUnaryExpressions.js';
+import getCalculateResponse from '../../../../entities/calculateResponse/calculateResponse';
+import validationUnaryExpressions from '../checks/validationUnaryExpressions';
 
 const validateUnaryExpression = (
   request: Request,

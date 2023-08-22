@@ -1,5 +1,5 @@
-import AbstractDatabase, { IHistoryItem } from '../AbstractDatabase.js';
-import knexModel from './config/pg-knexFile.js';
+import AbstractDatabase, { IHistoryItem } from '../AbstractDatabase';
+import knexModel from './config/pg-knexFile';
 import dotenv from 'dotenv';
 dotenv.config();
 
@@ -24,7 +24,9 @@ class PostgresDB extends AbstractDatabase<IHistoryItem> {
   }
 
   async list(sort?: string, filters: any = {}): Promise<IHistoryItem[]> {
-    let query = knexModel.select().from(process.env.POSTGRESQL_HISTORY_TABLE);
+    let query = knexModel
+      .select()
+      .from(process.env.POSTGRESQL_HISTORY_TABLE as string);
 
     if (filters.expression)
       query = query.where('expression', filters.expression);

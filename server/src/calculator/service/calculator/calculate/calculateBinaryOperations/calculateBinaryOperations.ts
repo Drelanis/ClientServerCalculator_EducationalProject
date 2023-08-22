@@ -1,22 +1,26 @@
-import Stack from '../../../../../stack/Stack.js';
-import { binaryFunctions } from '../../../../config/functions/functions.js';
-import { constantRegexp } from '../../../../config/regexp/regexp.js';
+import Stack from '../../../../../stack/Stack';
+import { binaryFunctions } from '../../../../config/functions/functions';
+import { constantRegexp } from '../../../../config/regexp/regexp';
 
 const numberStack: any = new Stack();
 const operatorStack: any = new Stack();
 
 const minusCount = (negativeNumber: string): number => {
-  const minuses = negativeNumber.match(/-/g);
+  const minuses = negativeNumber.match(/-/g) as RegExpMatchArray;
   const minuseCount = minuses.length;
   return minuseCount;
 };
 
 const considerMinuses = (negativeNumber: string): string => {
-  const number = negativeNumber.match(constantRegexp.isNumber)[0];
-  if (minusCount(negativeNumber) % 2 === 0) {
-    return `${number}`;
+  const numberMatch = negativeNumber.match(constantRegexp.isNumber);
+  if (numberMatch !== null) {
+    const number = numberMatch[0];
+    if (minusCount(negativeNumber) % 2 === 0) {
+      return number;
+    }
+    return `-${number}`;
   }
-  return `-${number}`;
+  return '';
 };
 
 const createField = (expression: string): string[] => {
@@ -35,9 +39,9 @@ const performOperation = (
   numberStack: string[],
   operatorStack: string[]
 ): number => {
-  const operator: string = operatorStack.pop();
-  const secondOperand: string = numberStack.pop();
-  const firstOperand: string = numberStack.pop();
+  const operator: string = operatorStack.pop() as string;
+  const secondOperand: string = numberStack.pop() as string;
+  const firstOperand: string = numberStack.pop() as string;
   const resultOfOperation: number = binaryFunctions[operator].operation(
     firstOperand,
     secondOperand

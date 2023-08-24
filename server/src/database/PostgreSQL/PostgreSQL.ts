@@ -1,6 +1,8 @@
-import AbstractDatabase, { IHistoryItem } from '../AbstractDatabase';
-import knexModel from './config/pg-knexFile';
 import dotenv from 'dotenv';
+import { IFilters, IHistoryItem, IListResponse } from '../../utils/interfaces';
+import { consts } from '../../utils/consts';
+import AbstractDatabase from '../AbstractDatabase';
+import knexModel from './config/pg-knexFile';
 dotenv.config();
 
 class PostgresDB extends AbstractDatabase<IHistoryItem> {
@@ -23,17 +25,29 @@ class PostgresDB extends AbstractDatabase<IHistoryItem> {
       .del();
   }
 
-  async list(sort?: string, filters: any = {}): Promise<IHistoryItem[]> {
+  async list(
+    sort?: string,
+    filters: IFilters = {},
+    startIndex?: number,
+    endIndex?: number
+  ): Promise<IListResponse> {
     let query = knexModel
       .select()
       .from(process.env.POSTGRESQL_HISTORY_TABLE as string);
-
+    const countQuery = await knexModel
+      .count()
+      .from(process.env.POSTGRESQL_HISTORY_TABLE as string);
+    const totalCount = Number(countQuery[0].count);
     if (filters.expression)
-      query = query.where('expression', filters.expression);
-    if (filters.result) query = query.where('result', filters.result);
-    if (sort === 'desc') query = query.orderBy('calculation_date', 'desc');
-
-    return await query;
+      query = query.where(consts.expressionAttribute, filters.expression);
+    if (filters.result)
+      query = query.where(consts.resultAttribute, filters.result);
+    if (sort === consts.descending)
+      query = query.orderBy(consts.createdDateAttribute, consts.descending);
+    if (startIndex !== undefined && endIndex !== undefined)
+      query = query.offset(startIndex).limit(endIndex);
+    const data: IHistoryItem[] = await query;
+    return { data, totalCount };
   }
 }
 

@@ -1,36 +1,34 @@
 import { Response, Request } from 'express';
 import Database from '../../../utils/DatabaseFactory';
-import { IHistoryItem } from '../../../database/AbstractDatabase';
+import { IHistoryItem, IListResponse } from '../../../utils/interfaces';
 import buildFilters from '../../../utils/buildFilters';
 import calculateIndexes from '../../../utils/calculateIndexes';
 import dotenv from 'dotenv';
 dotenv.config();
 
 class HistoryController {
-  public async getAll(
+  public async list(
     request: Request,
     response: Response
   ): Promise<Response<any, Record<string, any>>> {
     try {
-      const {
-        page = 1,
-        limit = 10,
-        sort = 'asc',
-        expression,
-        result,
-      } = request.query;
+      const { page, limit, sort = 'asc', expression, result } = request.query;
       const filters = buildFilters(expression as string, result as string);
       const { startIndex, endIndex } = calculateIndexes(
         page as string,
         limit as string
       );
-      const allHistories = await Database.query().list(sort as string, filters);
-      const paginatedHistories = allHistories.slice(startIndex, endIndex);
+      const { data, totalCount } = (await Database.query().list(
+        sort as string,
+        filters,
+        startIndex,
+        endIndex
+      )) as IListResponse;
       return response.json({
         error: false,
         message: '',
-        histories: paginatedHistories,
-        totalCount: allHistories.length,
+        data,
+        totalCount,
       });
     } catch (error) {
       return response.status(500).json({

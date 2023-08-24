@@ -7,7 +7,7 @@ import calculateRoutes from '../routes/routes';
 interface IHistoryResponse {
   error: boolean;
   message: string;
-  histories: IHistoryItem[];
+  data: IHistoryItem[];
   totalCount: number;
 }
 

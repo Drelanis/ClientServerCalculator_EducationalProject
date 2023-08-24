@@ -28,7 +28,7 @@ const History: FC<IHistoryProps> = ({ input }) => {
       const response = await CalculatorApi.getHistory(page, limit);
       if (response.error) return toast.error(response.message);
       setTotalPages(getPageCount(response.totalCount, limit));
-      setHistory([...isHistory, ...response.histories].flat());
+      setHistory([...isHistory, ...response.data].flat());
     }
   ) as [() => Promise<void>, boolean, string];
 

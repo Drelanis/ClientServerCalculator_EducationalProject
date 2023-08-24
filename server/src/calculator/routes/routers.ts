@@ -33,7 +33,7 @@ const routers: IRouters[] = [
     method: 'GET',
     path: '/history',
     middlewares: [],
-    action: HistoryController.getAll,
+    action: HistoryController.list,
   },
   {
     method: 'DELETE',

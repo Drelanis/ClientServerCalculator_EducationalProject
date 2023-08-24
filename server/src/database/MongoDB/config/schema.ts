@@ -4,7 +4,7 @@ dotenv.config();
 
 const calculatorHistorySchema = new mongoose.Schema(
   {
-    calculation_date: {
+    created_date: {
       type: Date,
       default: Date.now,
     },

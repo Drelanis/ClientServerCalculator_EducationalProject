@@ -1,4 +1,6 @@
-import AbstractDatabase, { IHistoryItem } from '../AbstractDatabase';
+import { IFilters, IHistoryItem, IListResponse } from '../../utils/interfaces';
+import { consts } from '../../utils/consts';
+import AbstractDatabase from '../AbstractDatabase';
 import MongooseModel from './config/model';
 
 class MongoDB extends AbstractDatabase<IHistoryItem> {
@@ -7,7 +9,6 @@ class MongoDB extends AbstractDatabase<IHistoryItem> {
     result: number
   ): Promise<IHistoryItem> {
     const historyItem: IHistoryItem = await new MongooseModel({
-      calculation_date: new Date(),
       expression,
       result,
     }).save();
@@ -18,10 +19,20 @@ class MongoDB extends AbstractDatabase<IHistoryItem> {
     await MongooseModel.deleteOne({ _id: id });
   }
 
-  public list(sort?: string, filters?: any): Promise<IHistoryItem[]> {
-    let query = MongooseModel.find(filters);
-    if (sort === 'desc') query = query.sort({ calculation_date: -1 });
-    return query.exec();
+  public async list(
+    sort?: string,
+    filters?: IFilters,
+    startIndex?: number,
+    endIndex?: number
+  ): Promise<IListResponse> {
+    let query = MongooseModel.find(filters!);
+    if (sort === consts.descending) query = query.sort({ created_date: -1 });
+    if (startIndex !== undefined && endIndex !== undefined) {
+      query = query.skip(startIndex).limit(endIndex);
+    }
+    const totalCount = await MongooseModel.countDocuments(filters).exec();
+    const data: IHistoryItem[] = await query.exec();
+    return { data, totalCount };
   }
 }
 

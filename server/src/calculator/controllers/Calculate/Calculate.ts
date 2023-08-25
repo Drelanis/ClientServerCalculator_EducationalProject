@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import calculate from '../../service/calculator/calculate/calculate';
-import calculateResponse from '../../entities/calculateResponse/calculateResponse';
+import calculateResponse from '../../entities/calculateResponse';
 import HistoryController from '../History/HistoryController';
 
 class CalculateController {

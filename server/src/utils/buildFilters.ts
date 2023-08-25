@@ -1,11 +1,13 @@
+import { IFilters } from './interfaces';
+
 const buildFilters = (
   expression: string | undefined,
   result: string | undefined
-): Partial<any> => {
-  const filters: Partial<any> = {};
-  if (expression) filters.expression = expression;
-  if (result) filters.result = result;
-  return filters;
+): IFilters => {
+  return {
+    ...(expression ? { expression } : {}),
+    ...(result ? { result } : {}),
+  };
 };
 
 export default buildFilters;

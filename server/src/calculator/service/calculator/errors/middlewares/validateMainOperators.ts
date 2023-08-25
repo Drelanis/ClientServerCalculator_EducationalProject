@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import getCalculateResponse from '../../../../entities/calculateResponse/calculateResponse';
+import getCalculateResponse from '../../../../entities/calculateResponse';
 import validationMainOperators from '../checks/validationMainOperators';
 
 const validateMainOperators = (

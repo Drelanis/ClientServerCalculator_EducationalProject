@@ -1,9 +1,10 @@
 import { Response, Request } from 'express';
 import Database from '../../../utils/DatabaseFactory';
 import { IHistoryItem, IListResponse } from '../../../utils/interfaces';
-import buildFilters from '../../../utils/buildFilters';
-import calculateIndexes from '../../../utils/calculateIndexes';
 import dotenv from 'dotenv';
+import { consts } from '../../../utils/consts';
+import HistoryService from '../../../calculator/service/history/HistoryService';
+import getHistoryResponse from '../../../calculator/entities/historyResponse';
 dotenv.config();
 
 class HistoryController {
@@ -12,31 +13,23 @@ class HistoryController {
     response: Response
   ): Promise<Response<any, Record<string, any>>> {
     try {
-      const { page, limit, sort = 'asc', expression, result } = request.query;
-      const filters = buildFilters(expression as string, result as string);
-      const { startIndex, endIndex } = calculateIndexes(
+      const {
+        page,
+        limit,
+        sort = consts.ascending,
+        expression,
+        result,
+      } = request.query;
+      const { data, totalCount } = await HistoryService.list(
         page as string,
-        limit as string
+        limit as string,
+        sort as consts,
+        expression as string,
+        result as string
       );
-      const { data, totalCount } = (await Database.query().list(
-        sort as string,
-        filters,
-        startIndex,
-        endIndex
-      )) as IListResponse;
-      return response.json({
-        error: false,
-        message: '',
-        data,
-        totalCount,
-      });
-    } catch (error) {
-      return response.status(500).json({
-        error: true,
-        message: 'Database error',
-        histories: [],
-        totalCount: 0,
-      });
+      return response.json(getHistoryResponse(false, '', data, totalCount));
+    } catch (error: any) {
+      return response.json(getHistoryResponse(true, error.message));
     }
   }
 
@@ -45,22 +38,20 @@ class HistoryController {
     result: number
   ): Promise<IHistoryItem> {
     try {
-      const historyItem = await Database.query().create(expression, result);
+      const historyItem = await Database.create(expression, result);
       return historyItem;
-    } catch (error) {
-      throw new Error('Failed to create history item');
+    } catch (error: any) {
+      throw new Error(error.message);
     }
   }
 
   public async delete(request: Request, response: Response) {
     const id = request.params.id;
     try {
-      await Database.query().delete(id);
-      return response.json({ error: false, message: '' });
-    } catch (error) {
-      return response
-        .status(500)
-        .json({ error: true, message: 'Database error' });
+      await HistoryService.delete(id);
+      return response.status(200).json(getHistoryResponse(false, ''));
+    } catch (error: any) {
+      return response.json(getHistoryResponse(true, error.message));
     }
   }
 }

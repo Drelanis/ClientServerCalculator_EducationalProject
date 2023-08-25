@@ -35,4 +35,4 @@ class Database {
   }
 }
 
-export default new Database();
+export default new Database().query();

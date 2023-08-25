@@ -1,7 +1,7 @@
 import { Request, Response } from 'express';
 import { body, validationResult } from 'express-validator';
 import { constantRegexp } from '../../../../config/regexp/regexp';
-import getCalculateResponse from '../../../../entities/calculateResponse/calculateResponse';
+import getCalculateResponse from '../../../../entities/calculateResponse';
 
 const mainValidateExpression = [
   body('expression')

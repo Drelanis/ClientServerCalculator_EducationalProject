@@ -36,6 +36,6 @@ export interface IHistoryItem {
 }
 
 export interface IErrorResponse {
-  error: boolean;
-  message: string;
+  isError: boolean;
+  errorMessage: string;
 }

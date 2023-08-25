@@ -26,7 +26,7 @@ const History: FC<IHistoryProps> = ({ input }) => {
   const [fetchHistory, isHistoryLoading, historyError] = useFetching(
     async () => {
       const response = await CalculatorApi.getHistory(page, limit);
-      if (response.error) return toast.error(response.message);
+      if (response.isError) return toast.error(response.errorMessage);
       setTotalPages(getPageCount(response.totalCount, limit));
       setHistory([...isHistory, ...response.data].flat());
     }
@@ -48,7 +48,7 @@ const History: FC<IHistoryProps> = ({ input }) => {
     const response = (await CalculatorApi.removeHistoryItem(
       historyItem._id
     )) as IErrorResponse;
-    if (response.error) return toast.error(response.message);
+    if (response.isError) return toast.error(response.errorMessage);
     setHistory(isHistory.filter((element) => element._id !== historyItem._id));
   };
 

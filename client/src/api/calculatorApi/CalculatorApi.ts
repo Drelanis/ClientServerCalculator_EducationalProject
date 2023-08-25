@@ -3,10 +3,9 @@ import CalculationResponse from '../../types/calculationRsponse';
 import config from '../../types/config';
 import BaseApi from '../baseApi/BaseApi';
 import calculateRoutes from '../routes/routes';
-
 interface IHistoryResponse {
-  error: boolean;
-  message: string;
+  isError: boolean;
+  errorMessage: string;
   data: IHistoryItem[];
   totalCount: number;
 }

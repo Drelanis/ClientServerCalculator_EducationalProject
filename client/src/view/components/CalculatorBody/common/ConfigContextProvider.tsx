@@ -1,8 +1,8 @@
 import React, { FC, useState, useEffect } from 'react';
-import { CalculatorConfigContext } from '../../../context';
-import CalculatorApi from '../../../../api/calculatorApi/CalculatorApi';
-import useFetching from '../../../hooks/useFetching';
-import { IConfigContext } from '../../../../interfaces/calculatorInterfaces';
+import { CalculatorConfigContext } from 'view/context';
+import CalculatorApi from 'api/calculatorApi/CalculatorApi';
+import useFetching from 'view/hooks/useFetching';
+import { IConfigContext } from 'interfaces/calculatorInterfaces';
 
 interface IConfigContextProviderProps {
   children: React.ReactNode;

@@ -1,9 +1,9 @@
 import { FC, useContext } from 'react';
-import { controlButtonsClassNames } from '../../../../../../../../../../classNames/classNamesOfElements';
-import { CalculatorConfigContext } from '../../../../../../../../../../context';
+import { controlButtonsClassNames } from 'view/classNames/classNamesOfElements';
+import { CalculatorConfigContext } from 'view/context';
 import InputButtons from '../../../../../../common/InputButtons';
-import { IOperations } from '../../../../../../../../../../../interfaces/calculatorInterfaces';
-import mainClassNames from '../../../../../../../../../../classNames/mainClassNames';
+import { IOperations } from 'interfaces/calculatorInterfaces';
+import mainClassNames from 'view/classNames/mainClassNames';
 
 const Numbers: FC = () => {
   const { config } = useContext(CalculatorConfigContext);

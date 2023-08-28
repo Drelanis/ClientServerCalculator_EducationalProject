@@ -1,6 +1,6 @@
 import { createContext } from 'react';
-import config from '../../types/config';
-import { IConfigContext } from '../../interfaces/calculatorInterfaces';
+import config from 'types/config';
+import { IConfigContext } from 'interfaces/calculatorInterfaces';
 
 export const CalculatorConfigContext = createContext<IConfigContext>({
   config: {} as config,

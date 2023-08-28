@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { optionsClassNames } from '../../../../../classNames/classNamesOfElements';
-import Checkbox from '../../../../../common/Checkbox';
+import { optionsClassNames } from 'view/classNames/classNamesOfElements';
+import Checkbox from 'view/common/Checkbox';
 import DarkThemeIcon from './DarkThemeIcon';
 import LightThemeIcon from './LightThemeIcon';
 

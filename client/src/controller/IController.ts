@@ -1,4 +1,4 @@
-import IModel from '../model/IModel';
+import IModel from 'model/IModel';
 
 interface IController {
   model: IModel;

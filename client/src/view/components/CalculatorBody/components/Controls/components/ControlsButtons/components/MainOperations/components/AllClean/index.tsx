@@ -1,6 +1,6 @@
 import { FC, useContext } from 'react';
-import { CalculatorConfigContext } from '../../../../../../../../../../context';
-import { IOperations } from '../../../../../../../../../../../interfaces/calculatorInterfaces';
+import { CalculatorConfigContext } from 'view/context';
+import { IOperations } from 'interfaces/calculatorInterfaces';
 import ActionButton from '../../../../../../common/ActionButton';
 
 interface IAllCleanProps {

@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { IOperations } from '../../../../../../interfaces/calculatorInterfaces';
+import { IOperations } from 'interfaces/calculatorInterfaces';
 
 interface IActionButtonProps {
   buttons: IOperations;

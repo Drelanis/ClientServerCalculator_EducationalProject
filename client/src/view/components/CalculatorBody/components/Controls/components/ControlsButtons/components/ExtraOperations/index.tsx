@@ -1,8 +1,8 @@
 import { FC, useContext } from 'react';
-import { CalculatorConfigContext } from '../../../../../../../../context';
-import { IOperations } from '../../../../../../../../../interfaces/calculatorInterfaces';
-import mainClassNames from '../../../../../../../../classNames/mainClassNames';
-import { extraControlButtons } from '../../../../../../../../classNames/classNamesOfElements';
+import { CalculatorConfigContext } from 'view/context';
+import { IOperations } from 'interfaces/calculatorInterfaces';
+import mainClassNames from 'view/classNames/mainClassNames';
+import { extraControlButtons } from 'view/classNames/classNamesOfElements';
 import InputButtons from '../../../../common/InputButtons';
 
 const ExtraOperations: FC = () => {

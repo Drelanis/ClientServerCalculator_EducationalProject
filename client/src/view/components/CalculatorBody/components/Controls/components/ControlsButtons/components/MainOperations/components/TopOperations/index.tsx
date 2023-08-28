@@ -1,13 +1,10 @@
 import { FC, useContext } from 'react';
-import {
-  CalculateContext,
-  CalculatorConfigContext,
-} from '../../../../../../../../../../context';
-import { controlButtonsClassNames } from '../../../../../../../../../../classNames/classNamesOfElements';
-import { IOperations } from '../../../../../../../../../../../interfaces/calculatorInterfaces';
+import { CalculateContext, CalculatorConfigContext } from 'view/context';
+import { controlButtonsClassNames } from 'view/classNames/classNamesOfElements';
+import { IOperations } from 'interfaces/calculatorInterfaces';
 import OperationButtons from '../../../../../../common/OperationButtons';
 import AllClean from '../AllClean';
-import mainClassNames from '../../../../../../../../../../classNames/mainClassNames';
+import mainClassNames from 'view/classNames/mainClassNames';
 
 const TopOperations: FC = () => {
   const { config } = useContext(CalculatorConfigContext);

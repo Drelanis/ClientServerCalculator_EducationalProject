@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import Model from '../../model/Model';
+import Model from 'model/Model';
 
 const useCalculatationHandler = (
   inputRef: React.MutableRefObject<HTMLTextAreaElement | null>

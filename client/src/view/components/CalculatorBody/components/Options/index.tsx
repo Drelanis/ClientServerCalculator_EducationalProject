@@ -1,8 +1,8 @@
 import { FC, useContext, Dispatch, SetStateAction } from 'react';
-import { optionsClassNames } from '../../../../classNames/classNamesOfElements';
+import { optionsClassNames } from 'view/classNames/classNamesOfElements';
 import Toggle from './common/Toggle';
 import HistoryIcon from './common/HistoryIcon';
-import { CalculatorConfigContext } from '../../../../context';
+import { CalculatorConfigContext } from 'view/context';
 import EngineerIcon from './common/EngineerIcon';
 
 type ToggleHandler = Dispatch<SetStateAction<boolean>>;

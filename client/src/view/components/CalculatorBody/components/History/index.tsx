@@ -1,15 +1,12 @@
 import { toast } from 'react-toastify';
 import { FC } from 'react';
 import HistoryList from './components/HistoryList';
-import usePagination from '../../../../hooks/usePagination';
-import CalculatorApi from '../../../../../api/calculatorApi/CalculatorApi';
-import { historyField } from '../../../../classNames/classNamesOfElements';
-import Error from '../../../../common/Error';
-import Loader from '../../../../common/Loader';
-import {
-  IErrorResponse,
-  IHistoryItem,
-} from '../../../../../interfaces/calculatorInterfaces';
+import usePagination from 'view/hooks/usePagination';
+import CalculatorApi from 'api/calculatorApi/CalculatorApi';
+import { historyField } from 'view/classNames/classNamesOfElements';
+import Error from 'view/common/Error';
+import Loader from 'view/common/Loader';
+import { IErrorResponse, IHistoryItem } from 'interfaces/calculatorInterfaces';
 
 interface IHistoryProps {
   input: (expression: string, result: string) => void;

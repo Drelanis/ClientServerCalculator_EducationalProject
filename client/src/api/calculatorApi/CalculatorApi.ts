@@ -1,6 +1,6 @@
-import { IHistoryItem } from '../../interfaces/calculatorInterfaces';
-import CalculationResponse from '../../types/calculationRsponse';
-import config from '../../types/config';
+import { IHistoryItem } from 'interfaces/calculatorInterfaces';
+import CalculationResponse from 'types/calculationRsponse';
+import config from 'types/config';
 import BaseApi from '../baseApi/BaseApi';
 import calculateRoutes from '../routes/routes';
 interface IHistoryResponse {

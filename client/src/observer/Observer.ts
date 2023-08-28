@@ -1,4 +1,4 @@
-import IModel from '../model/IModel';
+import IModel from 'model/IModel';
 import IObserver from './IObserver';
 
 class Observer implements IObserver {

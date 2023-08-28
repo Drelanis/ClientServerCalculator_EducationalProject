@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { inputClassNames } from '../../../../../classNames/classNamesOfElements';
+import { inputClassNames } from 'view/classNames/classNamesOfElements';
 
 interface ICalculatorInputProps {
   inputRef: React.MutableRefObject<HTMLTextAreaElement | null>;

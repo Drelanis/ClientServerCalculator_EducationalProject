@@ -1,5 +1,5 @@
-import CalculatorApi from '../../api/calculatorApi/CalculatorApi';
-import ConfigType from '../../types/config';
+import CalculatorApi from 'api/calculatorApi/CalculatorApi';
+import ConfigType from 'types/config';
 
 class Config {
   private config: Partial<ConfigType> = {};

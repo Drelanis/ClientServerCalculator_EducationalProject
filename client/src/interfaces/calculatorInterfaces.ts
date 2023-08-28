@@ -1,4 +1,4 @@
-import ConfigType from '../types/config.js';
+import ConfigType from 'types/config.js';
 
 export interface IOperations {
   [key: string]: IBinaryOperation | IUnaryOperations;

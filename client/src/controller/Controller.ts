@@ -1,5 +1,5 @@
-import CalculatorApi from '../api/calculatorApi/CalculatorApi';
-import IModel from '../model/IModel';
+import CalculatorApi from 'api/calculatorApi/CalculatorApi';
+import IModel from 'model/IModel';
 import IController from './IController';
 
 class Controller implements IController {

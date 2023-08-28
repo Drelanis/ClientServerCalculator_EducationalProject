@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import { outputClassNames } from '../../../../classNames/classNamesOfElements';
+import { outputClassNames } from 'view/classNames/classNamesOfElements';
 import EqualIcon from './common/EqualIcon';
 import ResultField from './common/ResultField';
 

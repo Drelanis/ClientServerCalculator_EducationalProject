@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { toast } from 'react-toastify';
 import useFetching from './useFetching';
 import useObserver from './useObserver';
-import { getPageCount } from '../../utils/pages';
+import { getPageCount } from 'utils/pages';
 
 interface IListItem {
   _id: string;

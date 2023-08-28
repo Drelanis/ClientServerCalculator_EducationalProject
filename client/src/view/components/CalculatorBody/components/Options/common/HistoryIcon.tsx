@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import Icon from '../../../../../common/Icon';
-import iconsClassNames from '../../../../../classNames/icons';
-import { optionsClassNames } from '../../../../../classNames/classNamesOfElements';
+import Icon from 'view/common/Icon';
+import iconsClassNames from 'view/classNames/icons';
+import { optionsClassNames } from 'view/classNames/classNamesOfElements';
 
 interface IHistoryIconProps extends React.HTMLProps<HTMLDivElement> {}
 

@@ -1,9 +1,6 @@
 import { FC, useContext } from 'react';
-import {
-  CalculateContext,
-  CalculatorConfigContext,
-} from '../../../../../../../../../../context';
-import { IOperations } from '../../../../../../../../../../../interfaces/calculatorInterfaces';
+import { CalculateContext, CalculatorConfigContext } from 'view/context';
+import { IOperations } from 'interfaces/calculatorInterfaces';
 import ActionButton from '../../../../../../common/ActionButton';
 
 const Equal: FC = () => {

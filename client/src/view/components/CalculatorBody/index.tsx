@@ -4,13 +4,13 @@ import ConfigContextProvider from './common/ConfigContextProvider';
 import ExpressionInput from './components/ExressionInput';
 import ResultOutput from './components/ResultOutput';
 import Controls from './components/Controls';
-import History from './/components/History';
+import History from './components/History';
 import Error from '../../common/Error';
-import useTheme from '../../hooks/useTheme';
-import useToggleFields from '../../hooks/useToggleFields';
-import useCalculatationHandler from '../../hooks/useCalculatationHandler';
-import useErrorHandler from '../../hooks/useErrorHandler';
-import useInputHandler from '../../hooks/useInputHandler';
+import useTheme from 'view/hooks/useTheme';
+import useToggleFields from 'view/hooks/useToggleFields';
+import useCalculatationHandler from 'view/hooks/useCalculatationHandler';
+import useErrorHandler from 'view/hooks/useErrorHandler';
+import useInputHandler from 'view/hooks/useInputHandler';
 
 const CalculatorBody: FC = () => {
   const { bodyClassName, isDarkTheme, setDarkTheme } = useTheme();

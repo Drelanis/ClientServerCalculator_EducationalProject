@@ -1,5 +1,5 @@
 import { FC } from 'react';
-import iconsClassNames from '../classNames/icons';
+import iconsClassNames from 'view/classNames/icons';
 
 interface IIconProps extends React.HTMLProps<HTMLLIElement> {}
 

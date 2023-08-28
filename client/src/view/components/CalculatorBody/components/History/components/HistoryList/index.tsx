@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { IHistoryItem } from '../../../../../../../interfaces/calculatorInterfaces';
+import { IHistoryItem } from 'interfaces/calculatorInterfaces';
 import HistoryItem from './components/HistoryItem';
-import { title } from '../../../../../../classNames/classNamesOfElements';
+import { title } from 'view/classNames/classNamesOfElements';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 
 interface IHistoryListProps {

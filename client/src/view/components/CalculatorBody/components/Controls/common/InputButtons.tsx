@@ -1,7 +1,7 @@
 import { FC, useContext } from 'react';
-import { IOperations } from '../../../../../../interfaces/calculatorInterfaces';
+import { IOperations } from 'interfaces/calculatorInterfaces';
 import ButtonsCreater from './ButtonsCreater';
-import { CalculateContext } from '../../../../../context';
+import { CalculateContext } from 'view/context';
 
 interface IInputButtonsProps {
   buttons: IOperations;

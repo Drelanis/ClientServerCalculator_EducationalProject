@@ -1,4 +1,4 @@
-import errorObject from '../types/errorObject';
+import errorObject from 'types/errorObject';
 import Observer from '../observer/Observer';
 import IModel from './IModel';
 

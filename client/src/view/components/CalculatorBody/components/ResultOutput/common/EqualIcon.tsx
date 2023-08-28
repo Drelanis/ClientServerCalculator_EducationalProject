@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import Icon from '../../../../../common/Icon';
-import { outputClassNames } from '../../../../../classNames/classNamesOfElements';
-import iconsClassNames from '../../../../../classNames/icons';
+import Icon from 'view/common/Icon';
+import { outputClassNames } from 'view/classNames/classNamesOfElements';
+import iconsClassNames from 'view/classNames/icons';
 
 const EqualIcon: FC = () => {
   return (

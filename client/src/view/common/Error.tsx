@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { errorClassNames } from '../classNames/classNamesOfElements';
-import iconsClassNames from '../classNames/icons';
+import { errorClassNames } from 'view/classNames/classNamesOfElements';
+import iconsClassNames from 'view/classNames/icons';
 import Icon from './Icon';
 
 type ErrorProps = {

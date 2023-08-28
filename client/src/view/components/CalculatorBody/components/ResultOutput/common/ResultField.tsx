@@ -1,6 +1,6 @@
 import { FC } from 'react';
-import { outputClassNames } from '../../../../../classNames/classNamesOfElements';
-import Loader, { smallLoader } from '../../../../../common/Loader';
+import { outputClassNames } from 'view/classNames/classNamesOfElements';
+import Loader, { smallLoader } from 'view/common/Loader';
 import { toast } from 'react-toastify';
 
 interface IResultFieldProps {

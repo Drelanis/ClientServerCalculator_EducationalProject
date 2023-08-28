@@ -1,7 +1,7 @@
 import { FC } from 'react';
-import { IOperations } from '../../../../../../interfaces/calculatorInterfaces';
+import { IOperations } from 'interfaces/calculatorInterfaces';
 import InputButtons from './InputButtons';
-import mainClassNames from '../../../../../classNames/mainClassNames';
+import mainClassNames from 'view/classNames/mainClassNames';
 
 interface IOperationButtonsProps {
   buttons: IOperations;

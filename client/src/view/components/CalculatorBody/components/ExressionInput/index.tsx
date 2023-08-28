@@ -1,6 +1,6 @@
-import { FC, RefObject } from 'react';
+import { FC } from 'react';
 import CalculatorInput from './common/CalculatorInput';
-import { inputClassNames } from '../../../../classNames/classNamesOfElements';
+import { inputClassNames } from 'view/classNames/classNamesOfElements';
 
 interface IExpressionInputProps {
   inputRef: React.MutableRefObject<HTMLTextAreaElement | null>;

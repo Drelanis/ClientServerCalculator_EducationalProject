@@ -1,8 +1,8 @@
 import { FC } from 'react';
-import { historyField } from '../../../../../../../../classNames/classNamesOfElements';
-import { IHistoryItem } from '../../../../../../../../../interfaces/calculatorInterfaces';
-import Icon from '../../../../../../../../common/Icon';
-import iconsClassNames from '../../../../../../../../classNames/icons';
+import { historyField } from 'view/classNames/classNamesOfElements';
+import { IHistoryItem } from 'interfaces/calculatorInterfaces';
+import Icon from 'view/common/Icon';
+import iconsClassNames from 'view/classNames/icons';
 
 interface IHistoryItemProps {
   historyElement: IHistoryItem;

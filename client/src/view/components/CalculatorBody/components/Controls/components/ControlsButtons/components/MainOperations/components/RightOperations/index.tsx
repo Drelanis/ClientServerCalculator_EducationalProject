@@ -1,9 +1,9 @@
 import { FC, useContext } from 'react';
-import { CalculatorConfigContext } from '../../../../../../../../../../context';
-import { controlButtonsClassNames } from '../../../../../../../../../../classNames/classNamesOfElements';
-import { IOperations } from '../../../../../../../../../../../interfaces/calculatorInterfaces';
+import { CalculatorConfigContext } from 'view/context';
+import { controlButtonsClassNames } from 'view/classNames/classNamesOfElements';
+import { IOperations } from 'interfaces/calculatorInterfaces';
 import OperationButtons from '../../../../../../common/OperationButtons';
-import mainClassNames from '../../../../../../../../../../classNames/mainClassNames';
+import mainClassNames from 'view/classNames/mainClassNames';
 import Equal from '../Equal';
 
 const RightOperations: FC = () => {

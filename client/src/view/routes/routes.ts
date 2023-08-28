@@ -1,4 +1,4 @@
-import { CALCULATOR_ROUTE } from '../../utils/consts';
+import { CALCULATOR_ROUTE } from 'utils/consts';
 import Calculator from '../pages/Calculator';
 
 interface IRoutes {

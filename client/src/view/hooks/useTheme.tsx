@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { calculator } from '../classNames/classNamesOfElements';
-import darkThemeClassNames from '../classNames/darkThemeClassNames';
+import { calculator } from 'view/classNames/classNamesOfElements';
+import darkThemeClassNames from 'view/classNames/darkThemeClassNames';
 
 const useTheme = () => {
   const [isDarkTheme, setDarkTheme] = useState(false);

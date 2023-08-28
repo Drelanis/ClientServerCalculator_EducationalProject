@@ -1,5 +1,5 @@
 import { FC, CSSProperties, useEffect, useState } from 'react';
-import { spinnerClassNames } from '../classNames/classNamesOfElements';
+import { spinnerClassNames } from 'view/classNames/classNamesOfElements';
 
 interface LoaderProps {
   style?: CSSProperties;

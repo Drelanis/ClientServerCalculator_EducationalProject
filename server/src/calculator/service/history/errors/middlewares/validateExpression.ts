@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import getHistoryResponse from '../../../../../calculator/entities/historyResponse';
+import getHistoryResponse from '@calculator/entities/historyResponse';
 import validationMainOperators from '../../../calculator/errors/checks/validationMainOperators';
 import validationNumbers from '../../../calculator/errors/checks/validationNumbers';
 import validationUnaryExpressions from '../../../calculator/errors/checks/validationUnaryExpressions';

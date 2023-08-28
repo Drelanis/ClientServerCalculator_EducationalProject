@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import getHistoryResponse from '../../../../../calculator/entities/historyResponse';
-import { consts } from '../../../../../utils/consts';
+import getHistoryResponse from '@calculator/entities/historyResponse';
+import { consts } from '@utils/consts';
 
 const validateSort = (
   request: Request,

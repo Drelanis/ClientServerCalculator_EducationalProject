@@ -1,8 +1,5 @@
-import { unaryFunctions } from '../../../../config/functions/functions';
-import {
-  constantRegexp,
-  createdRegexp,
-} from '../../../../config/regexp/regexp';
+import { unaryFunctions } from '@calculatorConfig/functions/functions';
+import { constantRegexp, createdRegexp } from '@calculatorConfig/regexp/regexp';
 import calculateBinaryOperations from '../calculateBinaryOperations/calculateBinaryOperations';
 
 const calculateParentheses = (expression: string): string => {

@@ -1,6 +1,6 @@
 import dotenv from 'dotenv';
-import { IFilters, IHistoryItem, IListResponse } from '../../utils/interfaces';
-import { consts } from '../../utils/consts';
+import { IFilters, IHistoryItem, IListResponse } from '@utils/interfaces';
+import { consts } from '@utils/consts';
 import AbstractDatabase from '../AbstractDatabase';
 import knexModel from './config/pg-knexFile';
 dotenv.config();

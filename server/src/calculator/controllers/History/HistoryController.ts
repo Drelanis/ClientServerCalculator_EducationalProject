@@ -1,10 +1,10 @@
 import { Response, Request } from 'express';
-import Database from '../../../utils/DatabaseFactory';
-import { IHistoryItem, IListResponse } from '../../../utils/interfaces';
 import dotenv from 'dotenv';
-import { consts } from '../../../utils/consts';
-import HistoryService from '../../../calculator/service/history/HistoryService';
-import getHistoryResponse from '../../../calculator/entities/historyResponse';
+import Database from '@utils/DatabaseFactory';
+import { IHistoryItem } from '@utils/interfaces';
+import { consts } from '@utils/consts';
+import HistoryService from '@calculator/service/history/HistoryService';
+import getHistoryResponse from '@calculator/entities/historyResponse';
 dotenv.config();
 
 class HistoryController {

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import checkIntegerNumber from '../checks/checkIntegerNumber';
-import getHistoryResponse from '../../../../../calculator/entities/historyResponse';
+import getHistoryResponse from '@calculator/entities/historyResponse';
 
 const validateLimit = (
   request: Request,

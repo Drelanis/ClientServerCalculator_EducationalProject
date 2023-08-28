@@ -1,8 +1,8 @@
-import { consts } from '../../../utils/consts';
-import buildFilters from '../../../utils/buildFilters';
-import Database from '../../../utils/DatabaseFactory';
-import { IHistoryItem, IListResponse } from '../../../utils/interfaces';
-import calculateIndexes from '../../../utils/calculateIndexes';
+import { consts } from '@utils/consts';
+import buildFilters from '@utils/buildFilters';
+import Database from '@utils/DatabaseFactory';
+import { IHistoryItem, IListResponse } from '@utils/interfaces';
+import calculateIndexes from '@utils/calculateIndexes';
 
 class HistoryService {
   async list(

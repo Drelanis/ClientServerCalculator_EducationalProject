@@ -1,4 +1,4 @@
-import { createdRegexp } from '../../../../config/regexp/regexp';
+import { createdRegexp } from '@calculatorConfig/regexp/regexp';
 
 const validationUnaryExpressions = (expression: string): RegExpMatchArray =>
   expression.match(

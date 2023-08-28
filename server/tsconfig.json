@@ -9,8 +9,12 @@
     "strict": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
-    "baseUrl": ".",
-    "paths": {}
+    "baseUrl": "./src",
+    "paths": {
+      "@utils/*": ["utils/*"],
+      "@calculator/*": ["calculator/*"],
+      "@calculatorConfig/*": ["calculator/config/*"]
+    }
   },
   "include": ["src"]
 }

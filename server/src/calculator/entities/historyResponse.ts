@@ -1,4 +1,4 @@
-import historyResponse from '../config/types/historyResponse';
+import historyResponse from '@calculatorConfig/types/historyResponse';
 
 const getHistoryResponse: historyResponse = (
   isError,

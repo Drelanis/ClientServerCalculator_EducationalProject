@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import { body, validationResult } from 'express-validator';
-import { constantRegexp } from '../../../../config/regexp/regexp';
+import { constantRegexp } from '@calculatorConfig/regexp/regexp';
 import getCalculateResponse from '../../../../entities/calculateResponse';
 
 const mainValidateExpression = [

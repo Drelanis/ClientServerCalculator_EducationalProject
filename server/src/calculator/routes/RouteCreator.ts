@@ -1,5 +1,5 @@
 import express, { Router } from 'express';
-import { IRouters } from '../config/interfaces/calculatorInterfaces';
+import { IRouters } from '@calculatorConfig/interfaces/calculatorInterfaces';
 import routers from './routers';
 
 class RouteCreator {

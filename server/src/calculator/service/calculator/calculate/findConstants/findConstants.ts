@@ -1,5 +1,5 @@
-import { unaryFunctions } from '../../../../config/functions/functions';
-import { createdRegexp } from '../../../../config/regexp/regexp';
+import { unaryFunctions } from '@calculatorConfig/functions/functions';
+import { createdRegexp } from '@calculatorConfig/regexp/regexp';
 
 const findConstants = (expression: string): string => {
   while (createdRegexp.isConstanse?.test(expression)) {

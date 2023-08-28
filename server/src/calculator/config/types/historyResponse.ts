@@ -1,4 +1,4 @@
-import { IHistoryItem } from '../../../utils/interfaces';
+import { IHistoryItem } from '@utils/interfaces';
 
 interface IHistoryResponse {
   isError: boolean;

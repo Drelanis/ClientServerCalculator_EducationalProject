@@ -1,6 +1,6 @@
-import Stack from '../../../../../stack/Stack';
-import { binaryFunctions } from '../../../../config/functions/functions';
-import { constantRegexp } from '../../../../config/regexp/regexp';
+import Stack from '@utils/stack/Stack';
+import { binaryFunctions } from '@calculatorConfig/functions/functions';
+import { constantRegexp } from '@calculatorConfig/regexp/regexp';
 
 const numberStack: any = new Stack();
 const operatorStack: any = new Stack();

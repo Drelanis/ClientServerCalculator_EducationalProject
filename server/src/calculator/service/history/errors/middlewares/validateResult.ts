@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import getHistoryResponse from '../../../../../calculator/entities/historyResponse';
+import getHistoryResponse from '@calculator/entities/historyResponse';
 import validateNumbers from '../../../calculator/errors/checks/validationNumbers';
 
 const validateResult = (

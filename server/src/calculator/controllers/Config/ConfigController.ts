@@ -1,6 +1,6 @@
-import Config from '../../config/Config';
+import Config from '@calculatorConfig/Config';
 import { Response, Request } from 'express';
-import ConfigType from '../../config/types/config';
+import ConfigType from '@calculatorConfig/types/config';
 
 class ConfigController {
   public async get(

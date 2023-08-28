@@ -1,4 +1,4 @@
-import { IFilters, IListResponse } from '../utils/interfaces';
+import { IFilters, IListResponse } from '@utils/interfaces';
 
 abstract class AbstractDatabase<T> {
   abstract create(expression: string, result: number): Promise<T>;

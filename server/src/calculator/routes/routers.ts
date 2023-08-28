@@ -8,7 +8,7 @@ import validateNumbers from '../service/calculator/errors/middlewares/validateNu
 import validateMainOperators from '../service/calculator/errors/middlewares/validateMainOperators';
 import ConfigController from '../controllers/Config/ConfigController';
 import HistoryController from '../controllers/History/HistoryController';
-import { IRouters } from '../config/interfaces/calculatorInterfaces';
+import { IRouters } from '@calculatorConfig/interfaces/calculatorInterfaces';
 import validatePage from '../service/history/errors/middlewares/validatePage';
 import validateLimit from '../service/history/errors/middlewares/validateLimit';
 import validateSort from '../service/history/errors/middlewares/validateSort';

@@ -1,5 +1,5 @@
-import { IFilters, IHistoryItem, IListResponse } from '../../utils/interfaces';
-import { consts } from '../../utils/consts';
+import { IFilters, IHistoryItem, IListResponse } from '@utils/interfaces';
+import { consts } from '@utils/consts';
 import AbstractDatabase from '../AbstractDatabase';
 import MongooseModel from './config/model';
 

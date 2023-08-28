@@ -1,4 +1,4 @@
-import isObjectEmpty from '../../utils/isObjectEmpty';
+import isObjectEmpty from '@utils/isObjectEmpty';
 import dataSetting from './allowedButtons/allowedButtons';
 import {
   extraConstance,

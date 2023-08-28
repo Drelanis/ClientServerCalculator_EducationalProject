@@ -29,7 +29,7 @@ export interface IConfigContext {
 }
 
 export interface IHistoryItem {
-  _id: number | string;
+  _id: string;
   expression: string;
   result: string;
   calculation_date: Date;

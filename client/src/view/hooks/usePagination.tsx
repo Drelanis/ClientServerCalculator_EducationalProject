@@ -3,14 +3,17 @@ import { toast } from 'react-toastify';
 import useFetching from './useFetching';
 import useObserver from './useObserver';
 import { getPageCount } from '../../utils/pages';
-import { IHistoryItem } from '../../interfaces/calculatorInterfaces';
 
-const usePagination = (
+interface IListItem {
+  _id: string;
+}
+
+const usePagination = <T extends IListItem>(
   fetchData: (page: number, limit: number) => Promise<any>,
   limit: number = 5
 ) => {
   const [page, setPage] = useState(1);
-  const [data, setData] = useState<IHistoryItem[]>([]);
+  const [data, setData] = useState<T[]>([]);
   const [totalCount, setTotalCount] = useState(0);
   const lastElementRef = useRef<HTMLDivElement | null>(null);
   const totalPages = getPageCount(totalCount, limit);
@@ -34,7 +37,15 @@ const usePagination = (
     setPage(page + 1)
   );
 
-  return { data, isLoading, error, lastElementRef };
+  const removeItem = (itemId: string) => {
+    setData((prevData) => prevData.filter((item) => item._id !== itemId));
+    setTotalCount(totalCount - 1);
+    if (page >= totalPages) {
+      setPage(totalPages);
+    }
+  };
+
+  return { data, isLoading, error, lastElementRef, removeItem };
 };
 
 export default usePagination;

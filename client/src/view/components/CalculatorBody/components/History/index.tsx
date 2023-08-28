@@ -1,5 +1,7 @@
-import { FC, useEffect, useState, useRef } from 'react';
-import useFetching from '../../../../hooks/useFetching';
+import { toast } from 'react-toastify';
+import { FC } from 'react';
+import HistoryList from './components/HistoryList';
+import usePagination from '../../../../hooks/usePagination';
 import CalculatorApi from '../../../../../api/calculatorApi/CalculatorApi';
 import { historyField } from '../../../../classNames/classNamesOfElements';
 import Error from '../../../../common/Error';
@@ -8,11 +10,6 @@ import {
   IErrorResponse,
   IHistoryItem,
 } from '../../../../../interfaces/calculatorInterfaces';
-import HistoryList from './components/HistoryList';
-import useObserver from '../../../../hooks/useObserver';
-import { getPageCount } from '../../../../../utils/pages';
-import { toast } from 'react-toastify';
-import usePagination from '../../../../hooks/usePagination';
 
 interface IHistoryProps {
   input: (expression: string, result: string) => void;
@@ -23,8 +20,8 @@ const History: FC<IHistoryProps> = ({ input }) => {
     return await CalculatorApi.getHistory(page, limit);
   };
 
-  const { data, isLoading, error, lastElementRef } =
-    usePagination(fetchHistoryData);
+  const { data, isLoading, error, lastElementRef, removeItem } =
+    usePagination<IHistoryItem>(fetchHistoryData);
 
   const removeHistoryItem = async (
     event: React.MouseEvent<HTMLLIElement, MouseEvent>,
@@ -35,7 +32,7 @@ const History: FC<IHistoryProps> = ({ input }) => {
       historyItem._id
     )) as IErrorResponse;
     if (response.isError) return toast.error(response.errorMessage);
-    data.filter((element) => element._id !== historyItem._id);
+    removeItem(historyItem._id);
   };
 
   return (

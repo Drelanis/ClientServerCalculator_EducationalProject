@@ -1,4 +1,3 @@
-import { Response } from 'express';
 import { consts } from '../../../utils/consts';
 import buildFilters from '../../../utils/buildFilters';
 import Database from '../../../utils/DatabaseFactory';
@@ -14,13 +13,10 @@ class HistoryService {
     result: string
   ): Promise<IListResponse> {
     try {
-      const filters = buildFilters(expression as string, result as string);
-      const { startIndex, endIndex } = calculateIndexes(
-        page as string,
-        limit as string
-      );
+      const filters = buildFilters(expression, result);
+      const { startIndex, endIndex } = calculateIndexes(page, limit);
       const { data, totalCount } = (await Database.list(
-        sort as string,
+        sort,
         filters,
         startIndex,
         endIndex

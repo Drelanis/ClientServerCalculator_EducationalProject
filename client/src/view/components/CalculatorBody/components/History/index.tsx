@@ -12,33 +12,19 @@ import HistoryList from './components/HistoryList';
 import useObserver from '../../../../hooks/useObserver';
 import { getPageCount } from '../../../../../utils/pages';
 import { toast } from 'react-toastify';
+import usePagination from '../../../../hooks/usePagination';
 
 interface IHistoryProps {
   input: (expression: string, result: string) => void;
 }
 
 const History: FC<IHistoryProps> = ({ input }) => {
-  const limit = 5;
-  const lastElement = useRef<HTMLDivElement | null>(null);
-  const [page, setPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(0);
-  const [isHistory, setHistory] = useState<IHistoryItem[]>([]);
-  const [fetchHistory, isHistoryLoading, historyError] = useFetching(
-    async () => {
-      const response = await CalculatorApi.getHistory(page, limit);
-      if (response.isError) return toast.error(response.errorMessage);
-      setTotalPages(getPageCount(response.totalCount, limit));
-      setHistory([...isHistory, ...response.data].flat());
-    }
-  ) as [() => Promise<void>, boolean, string];
+  const fetchHistoryData = async (page: number, limit: number) => {
+    return await CalculatorApi.getHistory(page, limit);
+  };
 
-  useObserver(lastElement, page < totalPages, isHistoryLoading, () => {
-    setPage(page + 1);
-  });
-
-  useEffect(() => {
-    fetchHistory();
-  }, [page]);
+  const { data, isLoading, error, lastElementRef } =
+    usePagination(fetchHistoryData);
 
   const removeHistoryItem = async (
     event: React.MouseEvent<HTMLLIElement, MouseEvent>,
@@ -49,20 +35,20 @@ const History: FC<IHistoryProps> = ({ input }) => {
       historyItem._id
     )) as IErrorResponse;
     if (response.isError) return toast.error(response.errorMessage);
-    setHistory(isHistory.filter((element) => element._id !== historyItem._id));
+    data.filter((element) => element._id !== historyItem._id);
   };
 
   return (
     <div className={historyField.root}>
-      {isHistoryLoading && <Loader style={{ margin: '160px' }} />}
-      <Error message={historyError} />
+      {isLoading && <Loader style={{ margin: '160px' }} />}
+      <Error message={error as string} />
       <HistoryList
-        elements={isHistory}
+        elements={data as IHistoryItem[]}
         input={input}
         remove={removeHistoryItem}
       />
-      <div ref={lastElement} style={{ height: '5px' }}></div>
-      {isHistoryLoading && (
+      <div ref={lastElementRef} style={{ height: '5px' }}></div>
+      {isLoading && (
         <Loader
           style={{ height: '20px', width: '20px', marginLeft: '200px' }}
         />

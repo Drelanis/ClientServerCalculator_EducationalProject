@@ -1,6 +1,8 @@
 import { useState } from 'react';
 
-const useFetching = (callback: Function) => {
+const useFetching = (
+  callback: Function
+): [() => Promise<void>, boolean, string] => {
   const [isLoading, setLoading] = useState(false);
   const [isError, setIsError] = useState('');
 

@@ -46,8 +46,8 @@ class HistoryController {
   }
 
   public async delete(request: Request, response: Response) {
-    const id = request.params.id;
     try {
+      const id = request.params.id;
       await HistoryService.delete(id);
       return response.status(200).json(getHistoryResponse(false, ''));
     } catch (error: any) {

@@ -12,7 +12,7 @@ const useObserver = (
     if (observer.current) {
       observer.current.disconnect();
     }
-    const cb: IntersectionObserverCallback = (entries, observer) => {
+    const cb: IntersectionObserverCallback = (entries) => {
       if (entries[0].isIntersecting && canLoad) {
         callback();
       }

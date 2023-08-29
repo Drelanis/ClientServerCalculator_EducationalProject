@@ -23,10 +23,6 @@ const HistoryItem: FC<IHistoryItemProps> = ({
       className={historyField.historyItem}
       onClick={() => action(historyElement.expression, historyElement.result)}
     >
-      <Icon
-        className={iconsClassNames.xmark}
-        onClick={(event) => remove(event, historyElement)}
-      />
       <div className={historyField.historyItemContainer}>
         <span className={historyField.historyItemExpression}>
           {historyElement.expression}
@@ -35,6 +31,10 @@ const HistoryItem: FC<IHistoryItemProps> = ({
           = {historyElement.result}
         </span>
       </div>
+      <Icon
+        className={iconsClassNames.xmark}
+        onClick={(event) => remove(event, historyElement)}
+      />
     </div>
   );
 };

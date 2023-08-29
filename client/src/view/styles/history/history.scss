@@ -25,7 +25,8 @@
     .fa-circle-xmark {
       line-height: 70px;
       font-size: 30px;
-      margin-right: auto;
+      margin-left: auto;
+      padding-left: 15px;
     }
     .fa-circle-xmark:hover {
       color: $lightTheme-input-text-color;
@@ -37,14 +38,13 @@
     .calculator__history_item-container {
       display: flex;
       flex-direction: column;
-      margin-left: auto;
-      padding-left: 30px;
       overflow-y: auto;
       .calculator__history_item-container-expression {
       }
       .calculator__history_item-container-result {
         margin-top: 10px;
         text-overflow: ellipsis;
+        margin-right: auto;
       }
     }
   }

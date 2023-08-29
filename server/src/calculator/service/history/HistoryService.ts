@@ -8,7 +8,7 @@ class HistoryService {
   async list(
     page: string,
     limit: string,
-    sort = consts.ascending,
+    sort = consts.descending,
     expression: string,
     result: string
   ): Promise<IListResponse> {

@@ -1,6 +1,5 @@
 import { Response, Request } from 'express';
 import dotenv from 'dotenv';
-import Database from '@utils/DatabaseFactory';
 import { IHistoryItem } from '@utils/interfaces';
 import { consts } from '@utils/consts';
 import HistoryService from '@calculator/service/history/HistoryService';
@@ -13,13 +12,7 @@ class HistoryController {
     response: Response
   ): Promise<Response<any, Record<string, any>>> {
     try {
-      const {
-        page,
-        limit,
-        sort = consts.ascending,
-        expression,
-        result,
-      } = request.query;
+      const { page, limit, sort, expression, result } = request.query;
       const { data, totalCount } = await HistoryService.list(
         page as string,
         limit as string,
@@ -38,7 +31,7 @@ class HistoryController {
     result: number
   ): Promise<IHistoryItem> {
     try {
-      const historyItem = await Database.create(expression, result);
+      const historyItem = await HistoryService.create(expression, result);
       return historyItem;
     } catch (error: any) {
       throw new Error(error.message);

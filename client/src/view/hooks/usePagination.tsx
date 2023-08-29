@@ -45,7 +45,7 @@ const usePagination = <T extends IListItem>(
     }
   };
 
-  return { data, isLoading, error, lastElementRef, removeItem };
+  return { data, isLoading, error, removeItem, lastElementRef };
 };
 
 export default usePagination;

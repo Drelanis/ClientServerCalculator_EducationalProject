@@ -20,13 +20,13 @@ class MongoDB extends AbstractDatabase<IHistoryItem> {
   }
 
   public async list(
-    sort?: string,
+    sort: string,
     filters?: IFilters,
     startIndex?: number,
     endIndex?: number
   ): Promise<IListResponse> {
     let query = MongooseModel.find(filters!);
-    if (sort === consts.descending) query = query.sort({ created_date: -1 });
+    if (sort === consts.ascending) query = query.sort({ created_date: 1 });
     if (startIndex !== undefined && endIndex !== undefined) {
       query = query.skip(startIndex).limit(endIndex);
     }

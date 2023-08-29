@@ -1,36 +1,24 @@
 import { toast } from 'react-toastify';
 import { FC } from 'react';
 import HistoryList from './components/HistoryList';
-import usePagination from 'view/hooks/usePagination';
-import CalculatorApi from 'api/calculatorApi/CalculatorApi';
 import { historyField } from 'view/classNames/classNamesOfElements';
 import Error from 'view/common/Error';
 import Loader from 'view/common/Loader';
-import { IErrorResponse, IHistoryItem } from 'interfaces/calculatorInterfaces';
+import {
+  IErrorResponse,
+  IHistoryItem,
+  IHistoryResponse,
+} from 'interfaces/calculatorInterfaces';
+import HistoryAPI from 'api/calculatorApi/HistoryAPI';
+import useList from 'view/hooks/useList';
 
 interface IHistoryProps {
   input: (expression: string, result: string) => void;
 }
 
 const History: FC<IHistoryProps> = ({ input }) => {
-  const fetchHistoryData = async (page: number, limit: number) => {
-    return await CalculatorApi.getHistory(page, limit);
-  };
-
   const { data, isLoading, error, lastElementRef, removeItem } =
-    usePagination<IHistoryItem>(fetchHistoryData);
-
-  const removeHistoryItem = async (
-    event: React.MouseEvent<HTMLLIElement, MouseEvent>,
-    historyItem: IHistoryItem
-  ) => {
-    event.stopPropagation();
-    const response = (await CalculatorApi.removeHistoryItem(
-      historyItem._id
-    )) as IErrorResponse;
-    if (response.isError) return toast.error(response.errorMessage);
-    removeItem(historyItem._id);
-  };
+    useList<IHistoryItem>(HistoryAPI);
 
   return (
     <div className={historyField.root}>
@@ -39,7 +27,7 @@ const History: FC<IHistoryProps> = ({ input }) => {
       <HistoryList
         elements={data as IHistoryItem[]}
         input={input}
-        remove={removeHistoryItem}
+        remove={removeItem}
       />
       <div ref={lastElementRef} style={{ height: '5px' }}></div>
       {isLoading && (

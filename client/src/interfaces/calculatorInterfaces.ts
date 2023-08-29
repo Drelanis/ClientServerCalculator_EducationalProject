@@ -28,8 +28,11 @@ export interface IConfigContext {
   configError: string;
 }
 
-export interface IHistoryItem {
+export interface IListItem {
   _id: string;
+}
+
+export interface IHistoryItem extends IListItem {
   expression: string;
   result: string;
   calculation_date: Date;
@@ -38,4 +41,16 @@ export interface IHistoryItem {
 export interface IErrorResponse {
   isError: boolean;
   errorMessage: string;
+}
+
+export interface IHistoryResponse {
+  isError: boolean;
+  errorMessage: string;
+  data: IHistoryItem[];
+  totalCount: number;
+}
+
+export interface IListAPI {
+  list: (page?: number, limit?: number) => Promise<any>;
+  remove: (_id: string) => Promise<unknown>;
 }

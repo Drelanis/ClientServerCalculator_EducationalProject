@@ -32,14 +32,13 @@ export interface IRouters {
 
 export interface ISuccessResponseParams<T> {
   response: Response;
-  message?: string;
-  data?: T;
-  totalCount?: number;
   status?: number;
+  [key: string]: string | number | undefined | Response | boolean | T;
 }
 
 export interface IFailResponseParams {
   response: Response;
   errorMessage: string;
   status?: number;
+  [key: string]: string | number | undefined | boolean | Response;
 }

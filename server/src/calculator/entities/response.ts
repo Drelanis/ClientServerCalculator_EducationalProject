@@ -6,16 +6,12 @@ import {
 
 export const successResponse = <T>({
   response,
-  message,
-  data,
   status = 200,
-  totalCount,
+  ...parametrs
 }: ISuccessResponseParams<T>): Response<any, Record<string, any>> => {
   return response.status(status).json({
     isError: false,
-    message,
-    data,
-    totalCount,
+    ...parametrs,
   });
 };
 
@@ -23,9 +19,11 @@ export const failResponse = ({
   response,
   errorMessage,
   status = 400,
+  ...parametrs
 }: IFailResponseParams): Response<any, Record<string, any>> => {
   return response.status(status).json({
     isError: true,
     errorMessage,
+    ...parametrs,
   });
 };

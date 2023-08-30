@@ -33,9 +33,9 @@ const usePagination = <T extends IListItem>(
     fetchPage();
   }, [page]);
 
-  useObserver(lastElementRef, page < totalPages, isLoading, () => {
-    setPage(page + 1);
-  });
+  useObserver(lastElementRef, page < totalPages, isLoading, () =>
+    setPage((prevPage) => prevPage + 1)
+  );
 
   return {
     data,

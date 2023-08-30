@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import getHistoryResponse from '@calculator/entities/historyResponse';
+import { failResponse } from '@calculator/entities/response';
 import { consts } from '@utils/consts';
 
 const validateSort = (
@@ -9,14 +9,10 @@ const validateSort = (
 ) => {
   const sort = request.query.sort;
   if (sort && sort !== consts.ascending && sort !== consts.descending) {
-    return response
-      .status(400)
-      .json(
-        getHistoryResponse(
-          true,
-          `Wrong sort value, use ${consts.ascending} or ${consts.descending}`
-        )
-      );
+    return failResponse({
+      response,
+      errorMessage: `Wrong sort value, use ${consts.ascending} or ${consts.descending}`,
+    });
   }
   next();
 };

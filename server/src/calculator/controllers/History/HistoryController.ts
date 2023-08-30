@@ -1,9 +1,8 @@
 import { Response, Request } from 'express';
 import dotenv from 'dotenv';
-import { IHistoryItem } from '@utils/interfaces';
 import { consts } from '@utils/consts';
 import HistoryService from '@calculator/service/history/HistoryService';
-import getHistoryResponse from '@calculator/entities/historyResponse';
+import { failResponse, successResponse } from '@calculator/entities/response';
 dotenv.config();
 
 class HistoryController {
@@ -20,21 +19,9 @@ class HistoryController {
         expression as string,
         result as string
       );
-      return response.json(getHistoryResponse(false, '', data, totalCount));
+      return successResponse({ response, data, totalCount });
     } catch (error: any) {
-      return response.json(getHistoryResponse(true, error.message));
-    }
-  }
-
-  public async create(
-    expression: string,
-    result: number
-  ): Promise<IHistoryItem> {
-    try {
-      const historyItem = await HistoryService.create(expression, result);
-      return historyItem;
-    } catch (error: any) {
-      throw new Error(error.message);
+      return failResponse({ response, errorMessage: error.message });
     }
   }
 
@@ -42,9 +29,9 @@ class HistoryController {
     try {
       const id = request.params.id;
       await HistoryService.delete(id);
-      return response.status(200).json(getHistoryResponse(false, ''));
+      return successResponse({ response, message: 'Deleted successfully' });
     } catch (error: any) {
-      return response.json(getHistoryResponse(true, error.message));
+      return failResponse({ response, errorMessage: error.message });
     }
   }
 }

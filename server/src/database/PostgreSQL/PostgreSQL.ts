@@ -26,7 +26,7 @@ class PostgresDB extends AbstractDatabase<IHistoryItem> {
   }
 
   async list(
-    sort?: string,
+    sort: string,
     filters: IFilters = {},
     startIndex?: number,
     endIndex?: number
@@ -42,8 +42,7 @@ class PostgresDB extends AbstractDatabase<IHistoryItem> {
       query = query.where(consts.expressionAttribute, filters.expression);
     if (filters.result)
       query = query.where(consts.resultAttribute, filters.result);
-    if (sort === consts.descending)
-      query = query.orderBy(consts.createdDateAttribute, consts.descending);
+    query = query.orderBy(consts.createdDateAttribute, sort);
     if (startIndex !== undefined && endIndex !== undefined)
       query = query.offset(startIndex).limit(endIndex);
     const data: IHistoryItem[] = await query;

@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import checkIntegerNumber from '../checks/checkIntegerNumber';
-import getHistoryResponse from '@calculator/entities/historyResponse';
+import { failResponse } from '@calculator/entities/response';
 
 const validateLimit = (
   request: Request,
@@ -9,12 +9,10 @@ const validateLimit = (
 ) => {
   const limit = request.query.limit;
   if (limit && !checkIntegerNumber(limit as string)) {
-    return response.json(
-      getHistoryResponse(
-        true,
-        'Invalid limit parameters, limit must be an integer'
-      )
-    );
+    return failResponse({
+      response,
+      errorMessage: 'Invalid limit parameters, limit must be an integer',
+    });
   }
   next();
 };

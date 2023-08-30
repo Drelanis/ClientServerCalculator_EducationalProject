@@ -1,33 +1,45 @@
 import ConfigType from '../types/config';
 import { Request, Response } from 'express';
 
-interface IOperations {
+export interface IOperations {
   [key: string]: IBinaryOperation | IUnaryOperations;
 }
 
-interface IMathOperation {
+export interface IMathOperation {
   content: string;
   customAtcion?: boolean;
 }
 
-interface IBinaryOperation extends IMathOperation {
+export interface IBinaryOperation extends IMathOperation {
   precedence: number;
   operation: (firstOperand: number, secondOperand: number) => number;
 }
 
-interface IUnaryOperations extends IMathOperation {
+export interface IUnaryOperations extends IMathOperation {
   [key: string]: ((number: number) => number) | string | boolean | undefined;
 }
 
-interface IConfig {
+export interface IConfig {
   get(): Partial<ConfigType>;
 }
 
-interface IRouters {
+export interface IRouters {
   method: string;
   path: string;
   middlewares: any[];
   action: (request: Request, response: Response) => void;
 }
 
-export { IOperations, IBinaryOperation, IUnaryOperations, IConfig, IRouters };
+export interface ISuccessResponseParams<T> {
+  response: Response;
+  message?: string;
+  data?: T;
+  totalCount?: number;
+  status?: number;
+}
+
+export interface IFailResponseParams {
+  response: Response;
+  errorMessage: string;
+  status?: number;
+}

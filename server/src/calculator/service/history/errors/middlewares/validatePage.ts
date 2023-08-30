@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
 import checkIntegerNumber from '../checks/checkIntegerNumber';
-import getHistoryResponse from '@calculator/entities/historyResponse';
+import { failResponse } from '@calculator/entities/response';
 
 const validatePage = (
   request: Request,
@@ -9,12 +9,10 @@ const validatePage = (
 ) => {
   const page = request.query.page;
   if (page && !checkIntegerNumber(page as string)) {
-    return response.json(
-      getHistoryResponse(
-        true,
-        'Invalid page parameters, limit must be an integer'
-      )
-    );
+    return failResponse({
+      response,
+      errorMessage: 'Invalid page parameters, limit must be an integer',
+    });
   }
   next();
 };

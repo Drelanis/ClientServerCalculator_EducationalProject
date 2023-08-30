@@ -1,5 +1,5 @@
 import { Request, Response } from 'express';
-import getHistoryResponse from '@calculator/entities/historyResponse';
+import { failResponse } from '@calculator/entities/response';
 import validateNumbers from '../../../calculator/errors/checks/validationNumbers';
 
 const validateResult = (
@@ -9,12 +9,10 @@ const validateResult = (
 ) => {
   const result = request.query.result;
   if (result && !validateNumbers(result as string)) {
-    return response.json(
-      getHistoryResponse(
-        true,
-        'Invalid result parameters, limit must be a number'
-      )
-    );
+    return failResponse({
+      response,
+      errorMessage: 'Invalid result parameters, limit must be a number',
+    });
   }
   next();
 };

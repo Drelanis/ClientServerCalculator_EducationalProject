@@ -1,14 +1,9 @@
-import { toast } from 'react-toastify';
 import { FC } from 'react';
 import HistoryList from './components/HistoryList';
 import { historyField } from 'view/classNames/classNamesOfElements';
 import Error from 'view/common/Error';
 import Loader from 'view/common/Loader';
-import {
-  IErrorResponse,
-  IHistoryItem,
-  IHistoryResponse,
-} from 'interfaces/calculatorInterfaces';
+import { IHistoryItem } from 'interfaces/calculatorInterfaces';
 import HistoryAPI from 'api/calculatorApi/HistoryAPI';
 import useList from 'view/hooks/useList';
 

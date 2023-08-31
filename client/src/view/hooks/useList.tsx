@@ -1,10 +1,10 @@
+import { toast } from 'react-toastify';
 import {
   IErrorResponse,
   IListAPI,
   IListItem,
 } from 'interfaces/calculatorInterfaces';
 import usePagination from './usePagination';
-import { toast } from 'react-toastify';
 
 const useList = <T extends IListItem>(service: IListAPI, limit: number = 5) => {
   const {

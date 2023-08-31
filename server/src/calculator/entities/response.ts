@@ -7,11 +7,11 @@ import {
 export const successResponse = <T>({
   response,
   status = 200,
-  ...parametrs
+  ...parameters
 }: ISuccessResponseParams<T>): Response<any, Record<string, any>> => {
   return response.status(status).json({
     isError: false,
-    ...parametrs,
+    ...parameters,
   });
 };
 
@@ -19,11 +19,11 @@ export const failResponse = ({
   response,
   errorMessage,
   status = 400,
-  ...parametrs
+  ...parameters
 }: IFailResponseParams): Response<any, Record<string, any>> => {
   return response.status(status).json({
     isError: true,
     errorMessage,
-    ...parametrs,
+    ...parameters,
   });
 };
